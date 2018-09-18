@@ -5,7 +5,7 @@ The Monomalpoly
 
 ![Google logo](https://github.com/CIASIE-2018/The-monomalpoly/blob/master/image/plateau.jpg "google logo")
 
-de 2 à 6 joueurs
+De 2 à 6 joueurs
 
 Le déroulement de la partie:
 
