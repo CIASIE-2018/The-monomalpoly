@@ -62,10 +62,6 @@ form input{
 	margin: auto;
 }
 
-.tierwidthbound{
-	max-width: 75%;
-}
-
 .box, .menu{
 	background: #e6e6e6;
 	border-color: grey;

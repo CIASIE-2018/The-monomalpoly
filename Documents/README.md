@@ -3,7 +3,7 @@ Groupe - Wirtz Thibault / Felix Paul / Marly Yanis / Dubouis Hugo
 
 The Monomalpoly
 
-![Google logo](https://github.com/CIASIE-2018/The-monomalpoly/blob/master/image/plateau.jpg "google logo")
+![Google logo](https://github.com/CIASIE-2018/The-monomalpoly/blob/master/image/plateau.jpg "Plateau du monomalpoly")
 
 De 2 à 6 joueurs
 
