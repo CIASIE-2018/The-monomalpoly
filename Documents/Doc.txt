@@ -1,3 +1,9 @@
+  ========================
+||                        ||
+||	Spécification du css  ||
+||                        ||
+  ========================
+
  ---------------------
 | Classes css de base |
  ---------------------
@@ -14,8 +20,6 @@ bordered : donne une bordure solide de 2px grise
 box : donne la couleur #e6e6e6 au fond et met la bordure grise
 
 menu : reprend la spécificité de box et donne une largeur de 90% en assignant une largeur maximum de 960px
-
-
 
  ------------------------------
 | Classes spécifiques aux flex |
