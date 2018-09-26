@@ -3,11 +3,11 @@ html,body{
 	height: 100%;
 	width: 100%;
 	font: 1em 'Calibri';
-	display: flex;
+	flex-direction: column;
 }
 
-html{
-	background: yellow;
+html,body,div,form{
+	display: flex;
 }
 
 h1,h2,h3,h4,h5,h6{font-weight: bold;}
@@ -19,8 +19,11 @@ h5{font-size: 1.8em;}
 h6{font-size: 1.4em;}
 
 div{
-	display: flex;
 	flex-direction: column;
+}
+
+form input{
+	margin:0em 1em;
 }
 
 
@@ -46,20 +49,29 @@ div{
 	flex-direction: row;
 }
 
-.curve{
+.curved{
 	border-radius: 1em;
-	background: red;
-	padding:1em;
+	padding:0.5em;
 }
 
 .bordered{
-	border:1px solid black;
+	border:2px solid grey;
 }
 
 .middle{
 	margin: auto;
 }
 
+.tierwidthbound{
+	max-width: 75%;
+}
+
+.box, .menu{
+	background: #e6e6e6;
+	border-color: grey;
+}
+
 .menu{
-	max-width: 50%;
+	width: 90%;
+	max-width: 960px;
 }
