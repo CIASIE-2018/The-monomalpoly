@@ -1,7 +1,13 @@
 /* Balises classiques */
 html,body{
 	height: 100%;
+	width: 100%;
 	font: 1em 'Calibri';
+	display: flex;
+}
+
+html{
+	background: yellow;
 }
 
 h1,h2,h3,h4,h5,h6{font-weight: bold;}
@@ -13,14 +19,47 @@ h5{font-size: 1.8em;}
 h6{font-size: 1.4em;}
 
 div{
-	
+	display: flex;
+	flex-direction: column;
 }
+
+
 
 /* Classes de simplification */
 .centerText{
 	text-align: center;
 }
 
+.maxwidth{
+	width: 100%;
+}
+
+.halfwidth{
+	width: 50%;
+}
+
+.tierwidth{
+	width: 75%;
+}
+
+.inline{
+	flex-direction: row;
+}
+
 .curve{
-	border-radius: 2rem;
+	border-radius: 1em;
+	background: red;
+	padding:1em;
+}
+
+.bordered{
+	border:1px solid black;
+}
+
+.middle{
+	margin: auto;
+}
+
+.menu{
+	max-width: 50%;
 }
