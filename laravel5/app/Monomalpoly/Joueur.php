@@ -35,8 +35,8 @@ class Joueur{
 		if($this->posX + $move >= $maxX){
 			$this->posX = $maxX;
 			$movement = $move - $maxX;
-			if()
 		}
+		
 	}
 
 	function selectNewCard(){
