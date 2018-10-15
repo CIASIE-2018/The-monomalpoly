@@ -7,7 +7,7 @@ class Joueur{
 	private $nbDisque;
 	private $listeServeur;
 
-	public Joueur($id,$nom,$couleur){
+	function Joueur($id,$nom,$couleur){
 		$this->position = 0;
 		$this->nbDisque = 0;
 		$this->listeServeur = [];
@@ -18,19 +18,19 @@ class Joueur{
 		
 	}
 
-	public move(){
+	function move(){
 
 	}
 
-	public selectNewCard(){
+	function selectNewCard(){
 
 	}
 
-	public setId($id){
+	function setId($id){
 		$this->id = $id;
 	}
 
-	public getNom(){
+	function getNom(){
 		return $this->nom;
 	}
 }
