@@ -8,24 +8,24 @@ class Partie{
 	private $plateau;
 	private $timer;
 
-	public Partie(){
+	function Partie(){
 		$this->listeJoueur = [];
 		$this->timer = new Timer();
 
 		/* Initialisation du plateau (liste de cases)*/
-		for(int $i=0;$i<$listeNomCase.length();$i++){
+		for($i = 0 ;$i<$listeNomCase.length(); $i++){
 			/* Systeme pour l'affichage en x/y */
 
-			$this->plateau.add(new Case($listeNomCase[$i],$x,$y));
+			$this->plateau.add(new CaseDeJeux($listeNomCase[$i],$x,$y));
 		}
 	}
 
-	public joueurJoin(){
+	function joueurJoin(){
 		//On créé un nouveau joueur
 		$listeJoueur.add(new Joueur($_SESSION['id'],$_SESSION['nom'],$listeCouleur[$listeJoueur.length()]));
 	}
 
-	public checkNbJoueur(){
+	function checkNbJoueur(){
 		if($listeJoueur.length()<2){
 			restartTimer();
 		}
