@@ -3,12 +3,14 @@ class Joueur{
 	private $id;
 	private $nom;
 	private $couleur;
-	private $position;
+	private $posX;
+	private $posY;
 	private $nbDisque;
 	private $listeServeur;
 
 	function Joueur($id,$nom,$couleur){
-		$this->position = 0;
+		$this->posX = 0;
+		$this->posY = 0;
 		$this->nbDisque = 0;
 		$this->listeServeur = [];
 
@@ -30,7 +32,11 @@ class Joueur{
 	}
 
 	function testPosition($move){
-		
+		if($this->posX + $move >= $maxX){
+			$this->posX = $maxX;
+			$movement = $move - $maxX;
+			if()
+		}
 	}
 
 	function selectNewCard(){
