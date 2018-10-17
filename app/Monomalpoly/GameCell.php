@@ -3,14 +3,14 @@
 class GameCell
 {
 	private $type;
-	private $nom;
-	public $listeJoueurs;
+	private $name;
+	public $listPlayer;
 	private $x;
 	private $y;
 
-	public function Case($nom,$x,$y){
-		$this->listeJoueur = [];
-		$this->nom = $nom;
+	public function Case($name,$x,$y){
+		$this->listPlayer = [];
+		$this->name = $name;
 		$this->x = $x;
 		$this->y = $y;
 	}
