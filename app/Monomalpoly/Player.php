@@ -1,22 +1,22 @@
 <?php
 class Player{
 	private $id;
-	private $nom;
-	private $couleur;
+	public $name;
+	private $color;
 	private $posX;
 	private $posY;
-	private $nbDisque;
-	private $listeServeur;
+	private $nbDisk;
+	private $listServer;
 
-	function Player($id,$nom,$couleur){
+	function Player($id,$name,$color){
 		$this->posX = 0;
 		$this->posY = 0;
-		$this->nbDisque = 0;
-		$this->listeServeur = [];
+		$this->nbDisk = 0;
+		$this->listServer = [];
 
 		$this->id = $id;
-		$this->nom = $nom;
-		$this->couleur = $couleur;
+		$this->name = $name;
+		$this->color = $color;
 		
 	}
 
@@ -29,7 +29,7 @@ class Player{
 		$movementDone = false; //boolean to know if there is no more movement to do;
 
 		if($penalty != true && $movementDone == false){
-			if($x == 0 && $y < $maxY){ 
+			if($x == 0 && $y < $maxY){ //movement on the y axis at x = 0
 				if($y + $move > $maxY){
 					$move = $maxY - $y;
 					$y = $maxY;
@@ -39,7 +39,7 @@ class Player{
 					$movementDone = true;
 				}
 			}
-			if($y == $maxY && $x < $maxX){
+			if($y == $maxY && $x < $maxX){//movement on the x axis at y = maxY
 				if($x + $move > $maxX){
 					$move = $maxX - $x;
 					$x = $maxX;
@@ -49,7 +49,7 @@ class Player{
 					$movementDone = true;
 				}
 			}
-			if($x == 10 && $y <= $maxY){
+			if($x == $maxX && $y <= $maxY){//movement on the y axis at x = maxX
 				if($y - $move < 0){
 					$move = $maxY - $y;
 					$y = 0;
@@ -59,7 +59,7 @@ class Player{
 					$movementDone = true;
 				}
 			}
-			if($y == 0 && $x <= $maxX){
+			if($y == 0 && $x <= $maxX){//movement on the x axis at y = 0
 				if($x - $move < 0){
 					$move = $maxX - $x;
 					$x = 0;
@@ -69,13 +69,7 @@ class Player{
 					$movementDone = true;
 				}
 			}
-		}
-
-
-		
-		if(!$canMove){
-			throw new Exception("Some message");
-		}
+		}	
 	}
 
 	function selectNewCard(){
@@ -84,14 +78,6 @@ class Player{
 
 	function setId($id){
 		$this->id = $id;
-	}
-
-	function getId(){
-		return $this->id;
-	}
-
-	function getNom(){
-		return $this->nom;
 	}
 }
 ?>

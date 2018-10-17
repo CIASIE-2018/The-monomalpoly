@@ -23,6 +23,12 @@ class TestGame extends TestCase
         $player7 = new Player(uniqid(), 'Player7', #AA2578);
         $game = new Game();
         // 2 players can join the game
+        $game.join($player1);
+        $game.join($player2);
+        $idp1 = $game->getListPlayer()[0]->getId();
+        $idp2 = $game->getListPlayer()[1]->getId();
+        $this->assertEquals($idp1, $player1->getId());
+        $this->assertEquals($idp2, $player2->getId());
         // 2 players need to be diferent
         // 6 players max
         // Cannot play outside the board

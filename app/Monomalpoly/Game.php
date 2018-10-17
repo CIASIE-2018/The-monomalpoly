@@ -19,22 +19,29 @@ class Game{
 		/* Initialisation du plateau (liste de cases)*/
 		for($i = 0 ;$i<=$maxX; $i++){
 			/* Systeme pour l'affichage en x/y */
-			$this->plateau.add(new CaseDeJeux($listeNomCase[$i],$x,0));
+			$this->plateau.add(new CaseDeJeux($listeNomCase[$i],$i,0));
 		}
-		for($j = 0 ;$i<=$maxY; $i++){
-			$this->plateau.add(new CaseDeJeux($listeNomCase[$i],$x,0));
+		for($j = 0 ;$j<=$maxY; $j++){
+			$this->plateau.add(new CaseDeJeux($listeNomCase[$j],0,$j));
 		}
 	}
 
-	function join(){
-		//On créé un nouveau joueur
-		$listeJoueur.add(new Joueur($_SESSION['id'],$_SESSION['nom'],$listeCouleur[$listeJoueur.length()]));
+	function join($player){
+		foreach ($listeJoueur as $value) {
+			if($value.getId() != $player.getId()) {
+				$listeJoueur.add($player);
+			} 
+		}
 	}
 
 	function checkNbJoueur(){
 		if($listeJoueur.length()<2){
 			restartTimer();
 		}
+	}
+
+	function getListPlayer(){
+		return $this->listeJoueur;
 	}
 }
 ?>
