@@ -1,22 +1,22 @@
 <?php
 class Players{
 	private $id;
-	private $nom;
-	private $couleur;
+	public $name;
+	private $color;
 	private $posX;
 	private $posY;
-	private $nbDisque;
-	private $listeServeur;
+	private $nbDisk;
+	private $listServer;
 
-	function Players($id,$nom,$couleur){
+	function Players($id,$nom,$color){
 		$this->posX = 0;
 		$this->posY = 0;
-		$this->nbDisque = 0;
-		$this->listeServeur = [];
+		$this->nbDisk = 0;
+		$this->listServer = [];
 
 		$this->id = $id;
 		$this->nom = $nom;
-		$this->couleur = $couleur;
+		$this->color = $color;
 		
 	}
 
@@ -84,10 +84,6 @@ class Players{
 
 	function setId($id){
 		$this->id = $id;
-	}
-
-	function getNom(){
-		return $this->nom;
 	}
 }
 ?>
