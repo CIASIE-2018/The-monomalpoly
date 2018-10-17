@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito");
+@import url("https://fonts.googleapis.com/css?family=Fjalla+One");
+.navbar-laravel {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+body {
+  height: 2000px;
+  background-color: #e1edf7;
+}
+
+.MenuAcceuil {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: auto;
+  text-align: center;
+  background-color: #a7a7dd;
+  border-radius: 1em;
+  padding: 0.5em;
+  margin-top: 30%;
+}
+
+.TitreAccueil {
+  padding: 10px;
+  font-family: "Fjalla One", sans-serif;
+}
+
+.FormulaireAcc {
+  padding: 5px;
+}
+
+.BoutonJouer {
+  border-radius: 1em;
+}
+
+/*# sourceMappingURL=applicss.css.map */
