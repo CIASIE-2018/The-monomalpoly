@@ -17,14 +17,13 @@ class Game{
 		$ind = 0; //variable to know where we're at in 
 
 		/* Initialisation du plateau (liste de cases)*/
-		for($i = 0 ;$i<$maxX; $i++){
-			/* Systeme pour l'affichage en x/y */
-			$this->board.add(new GameCell($listCell[$i],$i,0));//filling up the x axis with y at 0;
+		for($i = 0 ;$i<$maxY; $i++){
+			$this->board.add(new GameCell($listCell[$ind],$maxX,$i));//filling up the y axis with x at maxX;
 			$ind++;
 		}
-		for($j = 0 ;$j<$maxY; $j++){
+		for($j = 0 ;$j<$maxX; $j++){
 			$ind++;
-			$this->board.add(new GameCell($listCell[$ind],$maxX,$j));//filling up the y axis with x at maxX;
+			$this->board.add(new GameCell($listCell[$j],$j,0));//filling up the x axis with y at 0;
 		}
 		for($k = 0 ;$k<$maxX; $k++){
 			$ind++;
@@ -38,7 +37,7 @@ class Game{
 
 	function join(){
 		//On créé un nouveau joueur
-		$listePlayer.add(new Players($_SESSION['id'],$_SESSION['nom'],$listeCouleur[$listePlayer.length()]));
+		$listePlayer.add(new Player($_SESSION['id'],$_SESSION['nom'],$listColor[$listePlayer.length()]));
 	}
 
 	function checkNbPlayer(){
