@@ -1,10 +1,10 @@
 <?php
 
-class CaseDeJeux
+class GameCell
 {
 	private $type;
 	private $nom;
-	private $listeJoueurs;
+	public $listeJoueurs;
 	private $x;
 	private $y;
 
@@ -13,10 +13,6 @@ class CaseDeJeux
 		$this->nom = $nom;
 		$this->x = $x;
 		$this->y = $y;
-	}
-
-	public function getPlayersIn(){
-		return $this->listeJoueurs;
 	}
 }
 ?>

@@ -1,26 +1,32 @@
 <?php
-include('Case.php');
+include('GameCell.php');
 
-class Partie{
-	private $listeCouleur = ['red','yellow','orange','blue','green','grey'];
+class Game{
+	//private $listeCouleur = ['red','yellow','orange','blue','green','grey'];  
 	private $listeNomCase = [];
 	private $listeJoueur;
 	private $plateau;
 	private $timer;
+	public $maxX;
+	public $maxY;
 
-	function Partie(){
+	function Game(){
 		$this->listeJoueur = [];
 		$this->timer = new Timer();
 
-		/* Initialisation du plateau (liste de cases)*/
-		for($i = 0 ;$i<$listeNomCase.length(); $i++){
-			/* Systeme pour l'affichage en x/y */
+		$ind = 0; //variable to know
 
-			$this->plateau.add(new CaseDeJeux($listeNomCase[$i],$x,$y));
+		/* Initialisation du plateau (liste de cases)*/
+		for($i = 0 ;$i<=$maxX; $i++){
+			/* Systeme pour l'affichage en x/y */
+			$this->plateau.add(new CaseDeJeux($listeNomCase[$i],$x,0));
+		}
+		for($j = 0 ;$i<=$maxY; $i++){
+			$this->plateau.add(new CaseDeJeux($listeNomCase[$i],$x,0));
 		}
 	}
 
-	function joueurJoin(){
+	function join(){
 		//On créé un nouveau joueur
 		$listeJoueur.add(new Joueur($_SESSION['id'],$_SESSION['nom'],$listeCouleur[$listeJoueur.length()]));
 	}
