@@ -5,7 +5,6 @@
 	<title>Ma première vue</title>
 </head>
 <body>
-    Je suis une vue !
-    <a href=" {{ route('test') }} ">azeaze</a>
+    <p> {{$abcd}} </p>
 </body>
 </html>

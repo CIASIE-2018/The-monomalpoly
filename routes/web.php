@@ -11,14 +11,48 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/plateau', function () {
+    $game = cache('game');
+    $me = Cookie::get('id');
+    if (!$me) {
+        $me = uniqid();
+        Cookie::queue('id', $me, 60 * 5);
+    }
+    if (!$game) {
+        $game = new Game();
+    }
+    if (!$game->isStarted()) {
+        $game->join($me);
+    }
+    if ($game->isStarted()) {
+        $test = true;
+        foreach ($game->getListPlayer() as => $value) {
+            if($me == $value->getId()) {
+                $test = false;
+            }
+        }
+        if ($test) {
+            abort(404);
+        }
+    }
+    cache(
+        [
+            'game' => $game
+        ],
+        60 * 5
+    );
+    return view('plateau', [
+        'game' => $game
+    ]);
 });
 
 Route::get('/test', function () {
-    return view('vue1');
+    
 });
 
 Route::get('/test2', function () {
-    return view('vue2');
+    $var = "Hello world";
+    return view('vue2', [
+        'abcd' => $var
+    ]);
 });
