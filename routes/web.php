@@ -21,7 +21,7 @@ Route::get('/', function () {
 });
 
 Route::get('/test', function () {
-    
+    return view('plateau');
 });
 
 Route::get('/test2', function () {

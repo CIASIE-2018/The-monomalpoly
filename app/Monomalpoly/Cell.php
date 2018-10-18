@@ -6,9 +6,9 @@ class Cell {
     private $name;
     private $color;
     private $listPlayer = [];
-    private $disks = 
+    private $disks = [];
 
-    public function _construct($position, $type, $name, $color) {
+    function __construct($position, $type, $name, $color) {
         $this->position = $position;
         $this->type = $type;
         $this->name = $name;

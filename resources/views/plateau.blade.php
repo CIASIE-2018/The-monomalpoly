@@ -1,5 +1,5 @@
 <?php 
-
+    $cell2 = "Hello world !!!";
 ?>
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
@@ -12,7 +12,7 @@
     <body>
         <div class="content">
             <div class="plateau">
-                
+                {{ $cell2 }}
             </div>
         </div>
     </body>
