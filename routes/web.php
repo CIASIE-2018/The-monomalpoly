@@ -11,6 +11,7 @@
 |
 */
 
+<<<<<<< HEAD
 Route::get('/plateau', function () {
     $game = cache('game');
     $me = Cookie::get('id');
@@ -55,4 +56,13 @@ Route::get('/test2', function () {
     return view('vue2', [
         'abcd' => $var
     ]);
+=======
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+
+Route::get('/', function () {
+    return view('ViewAccueil');
+>>>>>>> 4e75e7a3496c292f80bc725602f702a2de210cd5
 });

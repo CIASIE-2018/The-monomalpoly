@@ -9,8 +9,12 @@
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.7.*",
         "laravel/tinker": "^1.0",
+<<<<<<< HEAD
         "twig/twig": "^2.0",
         "rcrowe/twigbridge": "0.5.*"
+=======
+        "pusher/pusher-php-server": "~3.0"
+>>>>>>> 4e75e7a3496c292f80bc725602f702a2de210cd5
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
