@@ -8,12 +8,11 @@ class GameCell
 	private $x;
 	private $y = 0;
 
-	public function Case($name,$x){
+	public function GameCell($name,$x){
 		$this->listPlayer = [];
 		$this->name = $name;
 		$this->x = $x;
 	}
-
 	
 }
 ?>
