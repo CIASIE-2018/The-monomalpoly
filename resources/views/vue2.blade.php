@@ -5,6 +5,6 @@
 	<title>Ma première vue</title>
 </head>
 <body>
-    <p> {{$abcd}} </p>
+    <p> {{$abcd[2]}} </p>
 </body>
 </html>

@@ -11,52 +11,6 @@
 |
 */
 
-<<<<<<< HEAD
-Route::get('/plateau', function () {
-    $game = cache('game');
-    $me = Cookie::get('id');
-    if (!$me) {
-        $me = uniqid();
-        Cookie::queue('id', $me, 60 * 5);
-    }
-    if (!$game) {
-        $game = new Game();
-    }
-    if (!$game->isStarted()) {
-        $game->join($me);
-    }
-    if ($game->isStarted()) {
-        $test = true;
-        foreach ($game->getListPlayer() as => $value) {
-            if($me == $value->getId()) {
-                $test = false;
-            }
-        }
-        if ($test) {
-            abort(404);
-        }
-    }
-    cache(
-        [
-            'game' => $game
-        ],
-        60 * 5
-    );
-    return view('plateau', [
-        'game' => $game
-    ]);
-});
-
-Route::get('/test', function () {
-    
-});
-
-Route::get('/test2', function () {
-    $var = "Hello world";
-    return view('vue2', [
-        'abcd' => $var
-    ]);
-=======
 // Route::get('/', function () {
 //     return view('welcome');
 // });
@@ -64,5 +18,15 @@ Route::get('/test2', function () {
 
 Route::get('/', function () {
     return view('ViewAccueil');
->>>>>>> 4e75e7a3496c292f80bc725602f702a2de210cd5
+});
+
+Route::get('/test', function () {
+    
+});
+
+Route::get('/test2', function () {
+    $var = [01, 12, 23, 34, 45, 56, 67, 78, 89, 91, 100];
+    return view('vue2', [
+        'abcd' => $var
+    ]);
 });
