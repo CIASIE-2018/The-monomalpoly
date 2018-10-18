@@ -8,6 +8,7 @@ class Player{
 	private $listServer;
 	private $penalty;
 	private $piece;
+	private $bitcoins;
 
 	function Player($id,$name,$color){
 		$this->posX = 0;
@@ -19,6 +20,7 @@ class Player{
 		$this->color = $color;
 		$this->penalty = false;
 		$this->piece = new Piece($color);
+		$this->bitcoins = 1500;
 		
 	}
 
@@ -36,6 +38,25 @@ class Player{
 
 	function setPenalty($penal){
 		$this->penalty = $penal;
+	}
+
+	function getPenalty(){
+		return $this->penalty;
+	}
+
+	function addBitcoins($bit){
+		$this->bitcoins += $bit;
+	}
+	function removeBitcoins($bit){
+		if(($this->bitcoins - $bit) >= 0){
+			$this->bitcoins -= $bit;
+		}
+		else{
+			$this->bitcoins = 0;
+		}
+	}
+	function getBitcoins(){
+		return $this->bitcoins;
 	}
 
 	/*function selectNewCard(){

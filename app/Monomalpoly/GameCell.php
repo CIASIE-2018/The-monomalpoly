@@ -13,5 +13,7 @@ class GameCell
 		$this->name = $name;
 		$this->x = $x;
 	}
+
+	
 }
 ?>

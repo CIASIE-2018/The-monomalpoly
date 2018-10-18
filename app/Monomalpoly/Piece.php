@@ -9,10 +9,11 @@ class Piece{
         $this->color= $color;
     }
 
-
     function piecePosition($x){
         $this->posX=$x;
     }
+
+    
 }
 
 ?>
