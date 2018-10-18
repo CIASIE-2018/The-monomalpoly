@@ -33,7 +33,12 @@ class Game{
 
 	function startCell($player){
 		if(!$player.getPenalty()){
-			$player.addBitcoins(200);
+			if($player.getBonus() == 'Parrain'){
+				$player.addBitcoins(300);
+			}
+			else{
+				$player.addBitcoins(200);
+			}
 		}
 	}
 }

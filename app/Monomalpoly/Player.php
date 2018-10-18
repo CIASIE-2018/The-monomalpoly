@@ -9,8 +9,9 @@ class Player{
 	private $penalty;
 	private $piece;
 	private $bitcoins;
+	private $bonus;
 
-	function Player($id,$name,$color){
+	function Player($id,$name,$color,$bonus){
 		$this->posX = 0;
 		$this->nbDisk = 0;
 		$this->listServer = [];
@@ -21,6 +22,7 @@ class Player{
 		$this->penalty = false;
 		$this->piece = new Piece($color);
 		$this->bitcoins = 1500;
+		$this->bonus = $bonus;
 		
 	}
 
@@ -57,6 +59,10 @@ class Player{
 	}
 	function getBitcoins(){
 		return $this->bitcoins;
+	}
+
+	function getBonus(){
+		return $this->bonus;
 	}
 
 	/*function selectNewCard(){
