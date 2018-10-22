@@ -18,5 +18,9 @@ class GameCell
 	public function getType(){
 		return $this->type;
 	}
+
+	public function getPrice(){
+		return 300;
+	}
 }
 ?>

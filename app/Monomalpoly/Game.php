@@ -7,6 +7,7 @@ class Game{
 	private $listPlayer;
 	private $board;
 	private $timer;
+	private $bonus;
 	public $maxX;
 	public $maxY;
 
@@ -60,6 +61,9 @@ class Game{
 		for($i = 0 ;$i<$listCell.length(); $i++){
 			$this->board.add($listCell[$i]);
 		}
+
+		/*initialisation of the list of bonus*/
+		//$bonus = []
 	}
 
 	function join(){
@@ -84,10 +88,17 @@ class Game{
 		}
 	}
 
-	function bonusCard(){
-		if()
-	}
+	/*function bonusCard($cell){
+		if($cell.getType().equals('bonus')){
 
+		}
+	}*/
+
+	function purchase($player,$cell){
+		if($player.getBitcoins() >= $cell.getPrice()){
+			
+		}
+	}
 
 }
 ?>
