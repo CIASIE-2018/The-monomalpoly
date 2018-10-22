@@ -11,11 +11,12 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-
 Route::get('/', function () {
-    return view('ViewAccueil');
+    return view('welcome');
 });
+
+Route::get('/test2', 'plateauController@index');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
