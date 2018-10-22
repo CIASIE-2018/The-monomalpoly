@@ -15,7 +15,15 @@
 //     return view('welcome');
 // });
 
+// Route::get('test', function () {
+//     event(new App\Events\JoinGame('John'));
+//     return "Event has been sent!";
+// });
 
-Route::get('/', function () {
-    return view('ViewAccueil');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/',function(){
+    return redirect('home');
 });
