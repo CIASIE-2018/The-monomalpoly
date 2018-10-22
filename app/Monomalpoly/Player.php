@@ -11,9 +11,8 @@ class Player{
 	private $bitcoins;
 	private $bonus;
 
-	function Player($id,$name,$color,$bonus){
+	function Player($id,$name,$color){
 		$this->posX = 0;
-		$this->nbDisk = 0;
 		$this->listServer = [];
 
 		$this->id = $id;
@@ -22,15 +21,29 @@ class Player{
 		$this->penalty = false;
 		$this->piece = new Piece($color);
 		$this->bitcoins = 1500;
-		$this->bonus = $bonus;
-		
+
+		$b = random_int(0,5);
+		$bonus = ['Host','Hacker','Producter','Parrain','Runner','GoodLoser'];
+		$this->bonus = $bonus[$b];
+		if($this->bonus == 'Host'){
+			$this->nbDisk = 3;
+		}
+		else{
+			$this->nbDisk = 0;
+		}
 	}
 
 	function move(){
 		$moveNb = random_int(1,6) + random_int(1,6);//first and second dice roll results;
 
 		if($this->penalty != true){
-			$this->posX += $moveNb;
+			if($this->posX + $moveNb >35){
+				$moveNb = 35 - $this->posX;
+				$this->posX = $moveNb-1;	
+			}
+			else{
+				$this->posX += $moveNb;
+			}
 			$this->piece.piecePosition($this->posX);
 		}
 		else{
