@@ -1,6 +1,12 @@
 <?php
-class Player{
-	private $id;
+
+namespace App\Monomalpoly;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Player extends Model
+{
+    private $id;
 	private $name;
 	private $color;
 	private $posX;
@@ -11,7 +17,7 @@ class Player{
 	private $bitcoins;
 	private $bonus;
 
-	function Player($id,$name,$color){
+	function __construct($id,$name,$color){
 		$this->posX = 0;
 		$this->listServer = [];
 
@@ -85,5 +91,20 @@ class Player{
 	function setId($id){
 		$this->id = $id;
 	}
+
+	/**
+	 * Get the value of name
+	 */ 
+	public function getName()
+	{
+		return $this->name;
+	}
+
+	/**
+	 * Get the value of color
+	 */ 
+	public function getColor()
+	{
+		return $this->color;
+	}
 }
-?>

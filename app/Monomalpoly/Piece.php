@@ -1,19 +1,12 @@
 <?php
-class Piece{
 
-    private $posX;
-    private $color;
+namespace App\Monomalpoly;
 
-    function Piece($color){
-        $this->posX= 0;
-        $this->color= $color;
-    }
-
+use Illuminate\Database\Eloquent\Model;
+    
+class Piece extends Model
+{
     function piecePosition($x){
         $this->posX=$x;
     }
-
-    
 }
-
-?>

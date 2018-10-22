@@ -1,8 +1,12 @@
 <?php
-include('GameCell.php');
 
-class Game{
-	//private $listeCouleur = ['red','yellow','orange','blue','green','grey']; 
+namespace App\Monomalpoly;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Game extends Model
+{
+    private $listeCouleur = ['red','yellow','orange','blue','green','grey']; 
 
 	private $listPlayer;
 	private $board;
@@ -77,6 +81,9 @@ class Game{
 		}
 	}
 
+	function getListPlayer(){
+		return $this->listeJoueur;
+	}
 	function startCell($player){
 		if(!$player.getPenalty()){
 			if($player.getBonus() == 'Parrain'){
@@ -101,4 +108,3 @@ class Game{
 	}
 
 }
-?>

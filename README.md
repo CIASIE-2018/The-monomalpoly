@@ -1,95 +1,65 @@
-﻿# The-monomalpoly
-Groupe - Wirtz Thibault / Felix Paul / Marly Yanis / Dubouis Hugo
+<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
-The Monomalpoly
+<p align="center">
+<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
+</p>
 
-![Plateau monomalpoly](https://github.com/CIASIE-2018/The-monomalpoly/blob/master/resources/image/plateau.jpg "Plateau du monomalpoly")
+## About Laravel
 
-De 2 à 6 joueurs
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
 
-Le déroulement de la partie:
+- [Simple, fast routing engine](https://laravel.com/docs/routing).
+- [Powerful dependency injection container](https://laravel.com/docs/container).
+- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
+- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+- [Robust background job processing](https://laravel.com/docs/queues).
+- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-Chaque joueur joue chacun son tour en lançant les dés et va se déplacer en fonction du nombre obtenu. 
+Laravel is accessible, yet powerful, providing tools needed for large, robust applications.
 
-Il y aura différentes propriétés qui porteront le nom de différents langages de programmation que le joueur pourra acheter en dépensant son argent. (Si il tombe sur une des deux cases de la même catégorie il acquiert les deux directement.)
+## Learning Laravel
 
-Ensuite le joueur aura la possibilité d’améliorer ses possessions (construire 1/2/3 Disques Dur ou 1 serveur) pour rendre le prix pour les autres joueurs qui tombe dessus plus cher.
+Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of any modern web application framework, making it a breeze to get started learning the framework.
 
-Le joueurs qui tombe sur une propriété déjà acheté par un autre joueur aura la possibilité de racheter la propriété directement (sauf celle avec un SERVEUR dessus car elles sont protégées)
+If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 1100 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
 
-Il y aura aussi plusieurs cases “Chances” qui vont permettre au joueur qui tombe dessus de tirer une carte qui va lui conférer soit un bonus ou un malus.
+## Laravel Sponsors
 
-Au début de la partie le joueur va également recevoir aléatoirement une compétence spéciale qui va lui permettre d’avoir un bonus tout au long de la partie.
+We would like to extend our thanks to the following sponsors for helping fund on-going Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell):
 
-La partie ce joue sur un timer définit et se termine au bout de 30 minutes. A la fin de ce temps on compte les points avec le format suivant:
+- **[Vehikl](https://vehikl.com/)**
+- **[Tighten Co.](https://tighten.co)**
+- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
+- **[Cubet Techno Labs](https://cubettech.com)**
+- **[British Software Development](https://www.britishsoftware.co)**
+- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
+- [UserInsights](https://userinsights.com)
+- [Fragrantica](https://www.fragrantica.com)
+- [SOFTonSOFA](https://softonsofa.com/)
+- [User10](https://user10.com)
+- [Soumettre.fr](https://soumettre.fr/)
+- [CodeBrisk](https://codebrisk.com)
+- [1Forge](https://1forge.com)
+- [TECPRESSO](https://tecpresso.co.jp/)
+- [Runtime Converter](http://runtimeconverter.com/)
+- [WebL'Agence](https://weblagence.com/)
+- [Invoice Ninja](https://www.invoiceninja.com)
+- [iMi digital](https://www.imi-digital.de/)
+- [Earthlink](https://www.earthlink.ro/)
+- [Steadfast Collective](https://steadfastcollective.com/)
 
-1 Disque Dur => 1 point
-1 Serveur => 5 points
-100 Bitcoins => 1 point
+## Contributing
 
-Le joueur avec le plus de points gagne la partie.
+Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-Présence de 4 cases hébergeurs( Kimsufi,1&1,Ikoula,OVH): A chaque fois que le joueur va tomber sur la case hébergeurs cela va lui permettre, gratuitement de construire un 1,2,3 Disque dur ou 1 serveur en fonction de l'hébergeur.
-Kimsufi=> 1DD
-1&1=> 2DD
-Ikoula=3DD
-OVH=> 1 serveur
-Si le joueur ne possède pas encore de propriétées pour placer ses DD/serveur reçu gratuitement il seront placés automatiquement au moment ou il achète une propriétée.
+## Security Vulnerabilities
 
-Présence de la case E3 qui va permettre au joueur qui tombe dessus de choisir une des ses propriété pour la booster et doubler les revenus pour les joueurs qui tombe dessus.
-Tant que personne ne retombe sur cette case la propriétée reste booster.
+If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-A chaque fois que le joueurs complète un tour de plateau et passe la case de départ il reçoit 200 bitcoins.
+## License
 
-Le joueur démarre la partie avec 1500 bitcoins.
-
-
-Editeurs de carte:
-
-Avant le début de la partie chaque joueur pourra choisir 4 cartes parmis une trentaine de cartes disponible et les personnaliser un minimum et changer la valeur des cartes:
-
-Il devra choisir 2 bonus et 2 malus, et les cartes seront ajoutées au paquet de cartes chances.
-
-
-Liste des compétences spéciales:
-
-<b>L’hébergeur</b> : Trois disques durs gratuit dès le début<br>
-<b>Le hackeur</b> : Peut mettre down une zone de serveurs actifs d’un autre joueur pendant un tour (activable une fois)<br>
-<b>Le producteur</b> : Produit deux fois plus de bitcoins pendant un tour (activable une fois)<br>
-<b>Le parrain</b> : 100 Bitcoins supplémentaires par tour de plateau<br>
-<b>Le coureur</b> : Ajoute +2 au lancé de dé (une fois par tour de plateau)<br>
-<b>Le bon dernier</b> : Le joueur doit perdre sans être en banqueroute afin de gagner<br>
-
-
-
-Cartes présentes
-
-
-Liste des cartes chances:
-
-<b>Jump</b> : Saute à une case particulière<br>
-<b>Don</b> : Le joueur gagne un nombre de bitcoins<br>
-<b>No pain no gain</b> : Le joueur gagne un nombre de bitcoins donné multiplié par le nombre de serveurs<br>
-<b>Libéré, délivré</b> : Le joueur sort de la prison<br>
-
-Liste des cartes malchances:
-
-<b>Le bon cheval</b> : Le joueur perd un de ses serveurs<br>
-<b>Mauvaise transaction</b> : Le joueur doit un nombre de bitcoins à la banque<br>
-<b>To Narnia!</b> : Le joueur va en prison<br>
-
-
-
-Cartes que les joueurs peuvent ajouter (en plus des cartes basiques)
-
-
-Liste des cartes chances:
-
-<b>Braquage</b> : Le joueur peut voler un serveur à un autre<br>
-<b>Swap</b> : Le joueur choisi la zone qu’il veut troquer avec une zone adverse en conservant les serveurs associés<br>
-<b>Hacking</b> : Le joueur vole un nombre défini<br>
-
-Liste des cartes malchances:
-
-<b>Inondations</b> : Le joueur perd tous ses serveurs<br>
-
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
