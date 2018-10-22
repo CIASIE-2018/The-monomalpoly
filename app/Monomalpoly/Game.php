@@ -30,5 +30,11 @@ class Game{
 			restartTimer();
 		}
 	}
+
+	function startCell($player){
+		if(!$player.getPenalty()){
+			$player.addBitcoins(200);
+		}
+	}
 }
 ?>
