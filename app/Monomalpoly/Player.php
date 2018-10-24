@@ -27,9 +27,6 @@ class Player extends Model
 		$this->penalty = false;
 		$this->piece = new Piece($color);
 		$this->bitcoins = 1500;
-<<<<<<< HEAD
-		
-=======
 
 		$b = random_int(0,5);
 		$bonus = ['Host','Hacker','Producter','Parrain','Runner','GoodLoser'];
@@ -40,7 +37,6 @@ class Player extends Model
 		else{
 			$this->nbDisk = 0;
 		}
->>>>>>> master
 	}
 
 	function move(){
@@ -84,13 +80,11 @@ class Player extends Model
 		return $this->bitcoins;
 	}
 
-<<<<<<< HEAD
-=======
+
 	function getBonus(){
 		return $this->bonus;
 	}
 
->>>>>>> master
 	/*function selectNewCard(){
 
 	}*/
