@@ -13,11 +13,11 @@ class Cell extends Model
     private $listPlayer;
     private $disks;
 
-    public function __construct($position, $type, $name, $color) {
+    public function __construct($name, $position, $type) {
         $this->position = $position;
         $this->type = $type;
         $this->name = $name;
-        $this->color = $color;
+        $this->color = null;
         $this->listPlayer = [];
         $this->disks = [];
     }
