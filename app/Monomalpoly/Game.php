@@ -15,7 +15,7 @@ class Game extends Model
 	public $maxX;
 	public $maxY;
 
-	function Game(){
+	function __construct(){
 		$this->listPlayer = [];
 		$this->timer = new Timer();
 
@@ -67,7 +67,14 @@ class Game extends Model
 		}
 
 		/*initialisation of the list of bonus*/
-		//$bonus = []
+		$bonus = [new BonusCard('Jump','Saute à une case particulière'),
+		new BonusCard('Don','Gagnez un nombre de bitcoins aléatoires'),
+		new BonusCard('No Pain No Gain','Gagnez un nombre de bitcoin donné multiplié par le nombre de serveurs que vous possédez'),
+		new BonusCard('Libéré, Délivré!','Sortez de prison! (conservable)'),
+		new BonusCard('Le Bon Cheval','Vous perdez un serveur'),
+		new BonusCard('Mauvaise transaction','Vous devez des bitcoins à la banque'),
+		new BonusCard('To Narnia!','Allez en prison!'),
+		]
 	}
 
 	function join(){

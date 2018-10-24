@@ -9,11 +9,10 @@ class Cell extends Model
     private $position;
     private $type;
     private $name;
-    private $color;
     private $listPlayer;
     private $disks;
 
-    public function __construct($position, $type, $name, $color) {
+    public function __construct($type,$position, $name) {
         $this->position = $position;
         $this->type = $type;
         $this->name = $name;
