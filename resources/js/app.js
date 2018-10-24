@@ -20,3 +20,14 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
 const app = new Vue({
     el: '#app'
 });
+
+// Echo.join(`chat.${roomId}`)
+//     .here((users) => {
+//         //
+//     })
+//     .joining((user) => {
+//         console.log(user.name);
+//     })
+//     .leaving((user) => {
+//         console.log(user.name);
+//     });

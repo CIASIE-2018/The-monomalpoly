@@ -1,0 +1,26 @@
+html,body{
+    @extend .fullWidth;
+    @extend .fullHeight;
+    @extend .noScroll;
+}
+
+body,a,button,li,ul,nav,main{
+    @extend .flex;
+}
+
+body{
+    @extend .notInline;
+    background-color: $bgCol;    
+}
+
+header{    
+    @extend .notInline;
+}
+
+a,button{
+    @extend .pointer;
+}
+
+main{
+    @extend .scrollable;
+}

@@ -71,6 +71,7 @@ class Game extends Model
 		}
 	}
 
+
 	function getListPlayer(){
 		return $this->listeJoueur;
 	}
