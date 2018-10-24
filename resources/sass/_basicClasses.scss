@@ -1,0 +1,41 @@
+.flex{
+    display: flex;
+}
+
+.notInline{
+    flex-direction: column;
+}
+
+.inline{
+    flex-direction: row;
+}
+
+.fullWidth{
+    max-width:100%;
+}
+
+.fullHeight{
+    min-height:100%;
+}
+
+.pointer{
+    cursor: pointer;
+}
+
+.noScroll{
+    overflow: hidden;
+}
+
+.scrollable{
+    overflow: auto;
+}
+
+.centerText{
+    text-align: center;
+}
+
+.middleFlex{
+    @extend .flex;
+    @include alignFlex($centerFlex);
+    @include justifyFlex($centerFlex);
+  }

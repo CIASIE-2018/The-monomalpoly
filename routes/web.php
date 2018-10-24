@@ -27,3 +27,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/',function(){
     return redirect('home');
 });
+
+Route::view('/rules','rules');

@@ -8,6 +8,7 @@ $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 
 // Colors
+$white:#ffffff;
 $blue: #3490dc;
 $indigo: #6574cd;
 $purple: #9561e2;
@@ -18,7 +19,18 @@ $yellow: #ffed4a;
 $green: #38c172;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
+$bgCol:rgb(225, 237, 247);
 
+$centerFlex:center;
+$endFlex:flex-end;
+$begFlex:flex-start;
 
+$smallMarg:2%;
+
+$smallRad:0.5em;
+$mediumRad:1em;
+$bigRad:2em;
+
+$baseFontCol:black;
 //
 $AccueilBackgroundColor:rgb(167, 167, 221);
