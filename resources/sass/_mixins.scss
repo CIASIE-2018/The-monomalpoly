@@ -1,0 +1,11 @@
+@mixin bordered($rad:0.5em) {
+    border-radius: $rad;
+}
+
+@mixin alignFlex($align:$centerFlex) {
+    align-items: $align;
+}
+
+@mixin justifyFlex($align:$centerFlex) {
+    justify-content: $align;
+}

@@ -79,6 +79,7 @@ class Player extends Model
 		return $this->bitcoins;
 	}
 
+
 	function getBonus(){
 		return $this->bonus;
 	}

@@ -11,12 +11,21 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/test2', 'plateauController@index');
+// Route::get('test', function () {
+//     event(new App\Events\JoinGame('John'));
+//     return "Event has been sent!";
+// });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/',function(){
+    return redirect('home');
+});
+
+Route::view('/rules','rules');
