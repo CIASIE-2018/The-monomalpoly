@@ -17,7 +17,7 @@
                     <div class="menu">
                         <a href="">Rejoindre une partie</a>
                         <a href="">Editeur de cartes</a>
-                        <a href="/rules">Règles</a>
+                        <a href="{{ url('rules') }}">Règles</a>
                         <a href="">Crédits</a>                    
                     </div>
                     
