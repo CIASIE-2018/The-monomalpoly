@@ -1,0 +1,50 @@
+.navbar-laravel {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  }
+  
+  .MenuAcceuil{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    background-color: $AccueilBackgroundColor;
+    border-radius: 1em;
+    padding:0.5em;
+    margin-top: 30%;
+  }
+  
+  .TitreAccueil{
+    padding: 10px;
+    font-family: 'Fjalla One', sans-serif;
+  }
+  
+  .FormulaireAcc{
+    padding: 5px;
+  }
+
+  .menu{
+    display: flex;
+    flex-direction: column;
+
+    .title{
+      @extend .centerText;
+    }
+
+    a{
+      @include bordered();
+      @include justifyFlex($centerFlex);
+      margin:$smallMarg 0;  
+      width:75%;
+      background-color: $cyan;
+      padding:$smallMarg;
+      color:$white;
+    }
+
+    @include alignFlex($centerFlex);    
+  }
+
+  .card-header{
+    text-align: center;
+  }

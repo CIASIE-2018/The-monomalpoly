@@ -17,54 +17,49 @@ class Game extends Model
 
 	function __construct(){
 		$this->listPlayer = [];
-		$this->timer = new Timer();
+		//$this->timer = new Timer();
 
 
 		//List of the different Cells in the board with their position on x
-		$listCell = [
-			new GameCell("Start",0,"start"),
-			new GameCell("unknow",1,"purchasable"),
-			new GameCell("unknow",2,"bonus"),
-			new GameCell("unknow",3,"purchasable"),
-			new GameCell("Kimsufi",4,"host"),
-			new GameCell("Hadopi 100",5,"purchasable"),
-			new GameCell("unknow",6,"purchasable"),
-			new GameCell("unknow",7,"bonus"),
-			new GameCell("unknow",8,"purchasable"),
-			new GameCell("Network 56K",9,"jail"),
-			new GameCell("unknow",10,"purchasable"),
-			new GameCell("unknow",11,"bonus"),
-			new GameCell("unknow",12,"purchasable"),
-			new GameCell("1&1",13,"host"),
-			new GameCell("Hadopi 200",14,"purchasable"),
-			new GameCell("unknow",15,"purchasable"),
-			new GameCell("unknow",16,"bonus"),
-			new GameCell("unknow",17,"purchasable"),
-			new GameCell("E3",18,"boost"),
-			new GameCell("unknow",19,"purchasable"),
-			new GameCell("unknow",20,"bonus"),
-			new GameCell("unknow",21,"purchasable"),
-			new GameCell("Ikoula",22,"host"),
-			new GameCell("Hadopi 300",23,"purchasable"),
-			new GameCell("unknow",24,"purchasable"),
-			new GameCell("unknow",25,"bonus"),
-			new GameCell("unknow",26,"purchasable"),
-			new GameCell("Internet Shutdown",27,"go to jail"),
-			new GameCell("unknow",28,"purchasable"),
-			new GameCell("unknow",29,"bonus"),
-			new GameCell("unknow",30,"purchasable"),
-			new GameCell('OVH', 31,"host"),
-			new GameCell("unknow",32,"bonus"),
-			new GameCell("unknow",33,"purchasable"),
-			new GameCell("Hadopi 400",34,"host"),
-			new GameCell("unknow",35,"purchasable")
+		$this->board = [
+			new Cell("Start",0,"start"),
+			new Cell("unknow",1,"purchasable"),
+			new Cell("unknow",2,"bonus"),
+			new Cell("unknow",3,"purchasable"),
+			new Cell("Kimsufi",4,"host"),
+			new Cell("Hadopi 100",5,"purchasable"),
+			new Cell("unknow",6,"purchasable"),
+			new Cell("unknow",7,"bonus"),
+			new Cell("unknow",8,"purchasable"),
+			new Cell("Network 56K",9,"jail"),
+			new Cell("unknow",10,"purchasable"),
+			new Cell("unknow",11,"bonus"),
+			new Cell("unknow",12,"purchasable"),
+			new Cell("1&1",13,"host"),
+			new Cell("Hadopi 200",14,"purchasable"),
+			new Cell("unknow",15,"purchasable"),
+			new Cell("unknow",16,"bonus"),
+			new Cell("unknow",17,"purchasable"),
+			new Cell("E3",18,"boost"),
+			new Cell("unknow",19,"purchasable"),
+			new Cell("unknow",20,"bonus"),
+			new Cell("unknow",21,"purchasable"),
+			new Cell("Ikoula",22,"host"),
+			new Cell("Hadopi 300",23,"purchasable"),
+			new Cell("unknow",24,"purchasable"),
+			new Cell("unknow",25,"bonus"),
+			new Cell("unknow",26,"purchasable"),
+			new Cell("Internet Shutdown",27,"go to jail"),
+			new Cell("unknow",28,"purchasable"),
+			new Cell("unknow",29,"bonus"),
+			new Cell("unknow",30,"purchasable"),
+			new Cell('OVH', 31,"host"),
+			new Cell("unknow",32,"bonus"),
+			new Cell("unknow",33,"purchasable"),
+			new Cell("Hadopi 400",34,"host"),
+			new Cell("unknow",35,"purchasable")
 		];
 
-
-		/* Initialisation du plateau (liste de GameCels)*/
-		for($i = 0 ;$i<$listCell.length(); $i++){
-			$this->board.add($listCell[$i]);
-		}
 
 		/*initialisation of the list of bonus*/
 		$bonus = [new BonusCard('Jump','Saute à une case particulière'),
@@ -88,6 +83,7 @@ class Game extends Model
 		}
 	}
 
+
 	function getListPlayer(){
 		return $this->listeJoueur;
 	}
@@ -102,11 +98,11 @@ class Game extends Model
 		}
 	}
 
-	/*function bonusCard($cell){
+	function bonusCard($cell){
 		if($cell.getType().equals('bonus')){
 
 		}
-	}*/
+	}
 
 	function purchase($player,$cell){
 		if($player.getBitcoins() >= $cell.getPrice()){
@@ -114,4 +110,11 @@ class Game extends Model
 		}
 	}
 
+	/**
+	 * Get the value of board
+	 */ 
+	public function getBoard()
+	{
+		return $this->board;
+	}
 }
