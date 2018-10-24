@@ -1,6 +1,12 @@
 <?php
-class Player{
-	private $id;
+
+namespace App\Monomalpoly;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Player extends Model
+{
+    private $id;
 	private $name;
 	private $color;
 	private $posX;
@@ -9,10 +15,10 @@ class Player{
 	private $penalty;
 	private $piece;
 	private $bitcoins;
+	private $bonus;
 
-	function Player($id,$name,$color){
+	function __construct($id,$name,$color){
 		$this->posX = 0;
-		$this->nbDisk = 0;
 		$this->listServer = [];
 
 		$this->id = $id;
@@ -21,14 +27,33 @@ class Player{
 		$this->penalty = false;
 		$this->piece = new Piece($color);
 		$this->bitcoins = 1500;
+<<<<<<< HEAD
 		
+=======
+
+		$b = random_int(0,5);
+		$bonus = ['Host','Hacker','Producter','Parrain','Runner','GoodLoser'];
+		$this->bonus = $bonus[$b];
+		if($this->bonus == 'Host'){
+			$this->nbDisk = 3;
+		}
+		else{
+			$this->nbDisk = 0;
+		}
+>>>>>>> master
 	}
 
 	function move(){
 		$moveNb = random_int(1,6) + random_int(1,6);//first and second dice roll results;
 
 		if($this->penalty != true){
-			$this->posX += $moveNb;
+			if($this->posX + $moveNb >35){
+				$moveNb = 35 - $this->posX;
+				$this->posX = $moveNb-1;	
+			}
+			else{
+				$this->posX += $moveNb;
+			}
 			$this->piece.piecePosition($this->posX);
 		}
 		else{
@@ -59,6 +84,13 @@ class Player{
 		return $this->bitcoins;
 	}
 
+<<<<<<< HEAD
+=======
+	function getBonus(){
+		return $this->bonus;
+	}
+
+>>>>>>> master
 	/*function selectNewCard(){
 
 	}*/
@@ -66,5 +98,20 @@ class Player{
 	function setId($id){
 		$this->id = $id;
 	}
+
+	/**
+	 * Get the value of name
+	 */ 
+	public function getName()
+	{
+		return $this->name;
+	}
+
+	/**
+	 * Get the value of color
+	 */ 
+	public function getColor()
+	{
+		return $this->color;
+	}
 }
-?>
