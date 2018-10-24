@@ -62,7 +62,7 @@ class Game extends Model
 
 	function join(){
 		//On créé un nouveau joueur
-		$listePlayer.add(new Player($_SESSION['id'],$_SESSION['nom'],$listColor[$listePlayer.length()]));
+		$listePlayer.add(new Player();
 	}
 
 	function checkNbPlayer(){

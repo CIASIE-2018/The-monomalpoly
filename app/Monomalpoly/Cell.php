@@ -12,7 +12,8 @@ class Cell extends Model
     private $color;
     private $listPlayer;
     private $disks;
-
+    private $price;
+    
     public function __construct($name, $position, $type) {
         $this->position = $position;
         $this->type = $type;
@@ -36,7 +37,7 @@ class Cell extends Model
 
     public function AddDisk($player, $number) {
         if(is_object($player) and is_a($player, 'Player')) {
-            $name = $player.getName();
+            $name = $player->getName();
             if(isset($disks[$name])){
                 $this->disks[$name] += $number; 
             } else {
@@ -95,5 +96,18 @@ class Cell extends Model
     public function getPosition()
     {
         return $this->position;
+    }
+
+    /**
+     * Get the value of price
+     */ 
+    public function getPrice()
+    {
+        if(isset($this->disks)) {
+            foreach ($variable as $key => $value) {
+                return $this->price * (1.5 * $this->disks[$key]);
+            } 
+        }
+        return $this->price;
     }
 }

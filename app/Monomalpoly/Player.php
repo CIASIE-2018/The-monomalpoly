@@ -10,8 +10,8 @@ class Player extends Model
 	private $name;
 	private $color;
 	private $posX;
-	private $nbDisk;
 	private $listServer;
+	private $listLanguage;
 	private $penalty;
 	private $piece;
 	private $bitcoins;
@@ -23,20 +23,19 @@ class Player extends Model
 
 		$this->id = $id;
 		$this->name = $name;
-		$this->color = $color;
 		$this->penalty = false;
-		$this->piece = new Piece($color);
 		$this->bitcoins = 1500;
 
-		$b = random_int(0,5);
+		$bonusdice = random_int(0,5);
 		$bonus = ['Host','Hacker','Producter','Parrain','Runner','GoodLoser'];
-		$this->bonus = $bonus[$b];
+		$this->bonus = $bonus[$bonusdice];
 		if($this->bonus == 'Host'){
 			$this->nbDisk = 3;
 		}
 		else{
 			$this->nbDisk = 0;
 		}
+		$this->piece = new Piece($this, $color);
 	}
 
 	function move(){
