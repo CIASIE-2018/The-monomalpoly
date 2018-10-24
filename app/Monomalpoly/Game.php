@@ -80,6 +80,7 @@ class Game extends Model
 	function getListPlayer(){
 		return $this->listeJoueur;
 	}
+<<<<<<< HEAD
 	function startCell($player){
 		if(!$player.getPenalty()){
 			if($player.getBonus() == 'Parrain'){
@@ -94,4 +95,6 @@ class Game extends Model
 	function bonusCard(){
 		if()
 	}
+=======
+>>>>>>> dev
 }
