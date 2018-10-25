@@ -6,14 +6,22 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cell extends Model
 {
+    //Position of the cell
     private $position;
+    //Type of the cell
     private $type;
+    //Name of the cell
     private $name;
+    //Color of the cell
     private $color;
+    //List of players on the cell
     private $listPlayer;
+    //Table indicating the owner and number of disks purchased
+    //$disks = ['Player' => 'Number of disks']
     private $disks;
+    //Price of the cell
     private $price;
-    
+
     public function __construct($name, $position, $type) {
         $this->position = $position;
         $this->type = $type;

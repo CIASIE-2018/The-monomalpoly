@@ -6,20 +6,29 @@ use Illuminate\Database\Eloquent\Model;
 
 class Player extends Model
 {
-    private $id;
+	//id associate to player
+	private $id;
+	//name of player
 	private $name;
-	private $color;
+	//position of player in the board
 	private $posX;
+	//List of servers (house) owned by the player
 	private $listServer;
+	//List of language (street) owned by the player
 	private $listLanguage;
+	//Initialize if the player has obtained a penalty
 	private $penalty;
+	//piece associate to player
 	private $piece;
+	//Number of bitcoin (money) owned by the player
 	private $bitcoins;
+	//Initialized in the constructor
 	private $bonus;
 
 	function __construct($id,$name,$color){
 		$this->posX = 0;
 		$this->listServer = [];
+		$this->listLanguage = [];
 
 		$this->id = $id;
 		$this->name = $name;
@@ -84,10 +93,6 @@ class Player extends Model
 		return $this->bonus;
 	}
 
-	/*function selectNewCard(){
-
-	}*/
-
 	function setId($id){
 		$this->id = $id;
 	}
@@ -107,4 +112,29 @@ class Player extends Model
 	{
 		return $this->color;
 	}
+
+	/**
+	 * Set the value of posX
+	 *
+	 */ 
+	public function setPosX($posX)
+	{
+		$this->posX = $posX;
+	}
+
+	/**
+	 * Get the value of posX
+	 */ 
+	public function getPosX()
+	{
+		return $this->posX;
+	}
+
+    /**
+     * Get the value of id
+     */ 
+    public function getId()
+    {
+        return $this->id;
+    }
 }
