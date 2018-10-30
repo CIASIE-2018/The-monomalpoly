@@ -12,6 +12,8 @@ class Game extends Model
 	private $board;
 	//Defines who is it to play
 	private $turn;
+	//The number of the player board that must play
+	private $numberTurn;
 	function __construct(){
 		$this->listPlayer = [];
 
@@ -66,8 +68,8 @@ class Game extends Model
 
 	//Allows you to start the game
 	function start() {
-		$choiceTurn = random_int(0, sizeof($this->listPlayer)-1);
-		$this->turn = $this->listPlayer[$choiceTurn];
+		$numberTurn = random_int(0, sizeof($this->listPlayer)-1);
+		$this->turn = $this->listPlayer[$numberTurn];
 	}
 
 
@@ -89,6 +91,17 @@ class Game extends Model
 				$player->setPosX(0);
 			}
 			$player->setPosX($player->getPosX() + $moveNb);
+		}
+	}
+
+	//Allows you to move on to the next round
+	function nextTurn() {
+		if($numberTurn < 6) {
+			$numberTurn++;
+			$this->turn = $this->listPlayer[$numberTurn];
+		} else {
+			$numberTurn = 0;
+			$this->turn = $this->listPlayer[$numberTurn];
 		}
 	}
 
