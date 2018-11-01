@@ -61,7 +61,11 @@
     margin: $smallMarg auto;
   }
 
-  .cards-container-row{
+  .grid-row{
     @extend .flex;
     @extend .inline;
+  }
+  .grid-col,.grid{
+    @extend .flex;
+    @extend .notInline;
   }

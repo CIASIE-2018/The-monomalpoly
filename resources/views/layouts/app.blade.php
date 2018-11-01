@@ -11,6 +11,26 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script type="text/javascript">
+        function addToList(event){
+            var card = window.event.target.parentNode;
+            var deckList = document.getElementById('deck-card-list');            
+            var newCard = document.createElement('li');
+            var suppressButton = document.createElement('button');
+            suppressButton.innerText = 'X';
+            newCard.innerText = card.firstChild.data;
+            newCard.id = card.id;
+            suppressButton.addEventListener('onclick',removeFromList());
+            newCard.appendChild(suppressButton);
+            deckList.appendChild(newCard);
+            card.style = "display:none";
+        }
+
+        function removeFromList(){
+            //Remove first element that has class "1"
+            //Look for a way that can return the id of the element we just created in database
+        }
+    </script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">

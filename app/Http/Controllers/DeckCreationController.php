@@ -29,7 +29,7 @@ class DeckCreationController extends Controller
         ->select('id','name','description')
         ->get();
 
-        $everyCards='<ul>';
+        $everyCards='<ul class="type-card-list">';
         foreach($result as $row){
             $everyCards.='<li id='.$row->id.'>'.$row->name.'<button onclick="addToList()">-></button></li>';
         }
