@@ -30,4 +30,6 @@ Route::get('/',function(){
 
 Route::view('/rules','rules');
 
-Route::view('/decklist','decklist');
+Route::get('/decklist','DeckListController@getDecklist')->name('decklist');
+
+Route::get('/deckcreation','DeckCreationController@getEveryCards')->name('deck');

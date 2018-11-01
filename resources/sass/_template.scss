@@ -33,7 +33,7 @@
     }
 
     a{
-      @include bordered();
+      @include curved();
       @include justifyFlex($centerFlex);
       margin:$smallMarg 0;  
       width:75%;
@@ -52,4 +52,16 @@
   .deck-container{
     overflow: auto;
     height: 15rem;
+    @include bordered();
+    @include curved();
+  }
+
+  .btn-creation{    
+    @extend .centerText;
+    margin: $smallMarg auto;
+  }
+
+  .cards-container-row{
+    @extend .flex;
+    @extend .inline;
   }

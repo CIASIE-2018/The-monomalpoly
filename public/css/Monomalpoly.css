@@ -9,13 +9,13 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   vertical-align: baseline;
   color: black; }
 
-.flex, .middleFlex, body, a, button, li, ul, nav, main {
+.flex, .middleFlex, body, a, button, li, ul, nav, main, .cards-container-row {
   display: flex; }
 
 .notInline, body, header {
   flex-direction: column; }
 
-.inline {
+.inline, .cards-container-row {
   flex-direction: row; }
 
 .fullWidth, html, body {
@@ -33,7 +33,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 .scrollable, main {
   overflow: auto; }
 
-.centerText, .menu .title {
+.centerText, .menu .title, .btn-creation {
   text-align: center; }
 
 .middleFlex {
@@ -83,6 +83,11 @@ body {
 
 .deck-container {
   overflow: auto;
-  height: 15rem; }
+  height: 15rem;
+  border: 1px solid black;
+  border-radius: 0.5em; }
+
+.btn-creation {
+  margin: 2% auto; }
 
 /*# sourceMappingURL=Monomalpoly.css.map */
