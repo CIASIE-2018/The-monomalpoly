@@ -29,3 +29,5 @@ Route::get('/',function(){
 });
 
 Route::view('/rules','rules');
+
+Route::view('/decklist','decklist');

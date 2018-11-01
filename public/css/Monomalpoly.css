@@ -81,4 +81,8 @@ body {
 .card-header {
   text-align: center; }
 
+.deck-container {
+  overflow: auto;
+  height: 15rem; }
+
 /*# sourceMappingURL=Monomalpoly.css.map */

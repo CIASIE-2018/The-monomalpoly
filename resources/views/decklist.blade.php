@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Heureux de vous voir !</div>
+                <div class="card-header">Liste des différents decks</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -13,14 +13,11 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    <div class="menu">
-                        <a href="">Rejoindre une partie</a>
-                        <a href="{{ url('decklist') }}">Créateur de deck</a>
-                        <a href="{{ url('rules') }}">Règles</a>
-                        <a href="">Crédits</a>                    
-                    </div>
                     
+                    <div class="deck-container">
+                        <!-- On ajoute la vue pour les différents decks -->
+                    </div>
+
                 </div>
             </div>
         </div>
