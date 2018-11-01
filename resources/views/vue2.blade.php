@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
 	<title>Ma première vue</title>
     <style>
+    body {
+        display: inline;
+    }
+
     .board {
         display: grid;
         grid-template-columns: repeat(10, 1fr);
@@ -20,7 +24,7 @@
 
     .cell {
         width: 70px;
-        height: 70px;
+        height: 100px;
         border: solid black 1px;
     }
 
@@ -64,6 +68,8 @@
     .p35 { grid-column: 10 / span 1; grid-row: 8 / span 1; }
     .p36 { grid-column: 10 / span 1; grid-row: 9 / span 1; }
     .p37 { grid-column: 10 / span 1; grid-row: 10 / span 1; }
+
+    a { font-size: 24px; }
     </style>
 </head>
 <body>
@@ -73,7 +79,18 @@
 @for ($i = 0; $i < 36; $i++)
 <div class="cell p{{ $i+1 }}">This is cell name is {{ $cells[$i]->getName() }}</div>
 @endfor
-
+@isset($pos)
+<div class="cell p{{ $pos }}">
+<img src="/image/pepetransparent.png">
 </div>
+@endisset
+
+@empty($pos)
+<div class="cell p1">
+<img src="/image/pepetransparent.png">
+</div>
+@endempty
+</div>
+<a href="{{ url('test2/roll') }}">Lancer les dés</a>
 </body>
 </html>
