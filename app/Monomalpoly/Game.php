@@ -6,18 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Game extends Model
 {
-    private $listeCouleur = ['red','yellow','orange','blue','green','grey']; 
-
+	//List of players play in the game
 	private $listPlayer;
+	//List of cells of the board
 	private $board;
-	private $timer;
-	public $maxX;
-	public $maxY;
-
+	//Defines who is it to play
+	private $turn;
+	//The number of the player board that must play
+	private $numberTurn;
 	function __construct(){
 		$this->listPlayer = [];
-		//$this->timer = new Timer();
-
 
 		//List of the different Cells in the board with their position on x
 		$this->board = [
@@ -58,12 +56,22 @@ class Game extends Model
 			new Cell("Hadopi 400",34,"host"),
 			new Cell("unknow",35,"purchasable")
 		];
+		$this->turn = null;
 	}
 
-	function join(){
-		//On créé un nouveau joueur
-		$listePlayer.add(new Player($_SESSION['id'],$_SESSION['nom'],$listColor[$listePlayer.length()]));
+	//Allows you to join the game
+	function join($id, $name){
+		$color = ['#00FF00','#FF0000','#0000FF','#fc0adc','#09fc9b','#fcf708'];
+		$choiceColor = sizeof($this->listPlayer);
+		$this->listPlayer[] = new Player($id, $name, $color[$choiceColor]);
 	}
+
+	//Allows you to start the game
+	function start() {
+		$numberTurn = random_int(0, sizeof($this->listPlayer)-1);
+		$this->turn = $this->listPlayer[$numberTurn];
+	}
+
 
 	function checkNbPlayer(){
 		if($listeJoueur.length()<2){
@@ -71,9 +79,37 @@ class Game extends Model
 		}
 	}
 
+	//Allows you to roll the dice and move the player
+	function move($player) {
+		$moveNb = random_int(1,6) + random_int(1,6);
+		if(!$this->penalty) {
+			if($player->getPosX() + $moveNb > 35) {
+				while($player->getPosX() < 35) {
+					$player->setPosX($player->getPosX() + 1);
+					$moveNb--;
+				}
+				$player->setPosX(0);
+			}
+			$player->setPosX($player->getPosX() + $moveNb);
+		}
+	}
 
+	//Allows you to move on to the next round
+	function nextTurn() {
+		if($numberTurn < 6) {
+			$numberTurn++;
+			$this->turn = $this->listPlayer[$numberTurn];
+		} else {
+			$numberTurn = 0;
+			$this->turn = $this->listPlayer[$numberTurn];
+		}
+	}
+
+	/**
+	 * Get the value of listPlayer
+	 */ 
 	function getListPlayer(){
-		return $this->listeJoueur;
+		return $this->listPlayer;
 	}
 	function startCell($player){
 		if(!$player.getPenalty()){
@@ -96,5 +132,13 @@ class Game extends Model
 	public function getBoard()
 	{
 		return $this->board;
+	}
+
+	/**
+	 * Get the value of turn
+	 */ 
+	public function getTurn()
+	{
+		return $this->turn;
 	}
 }

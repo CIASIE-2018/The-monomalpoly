@@ -28,4 +28,8 @@ Route::get('/',function(){
     return redirect('home');
 });
 
+Route::get('/test', 'TestController@index');
+
+Route::get('/test2', 'plateauController@index');
+
 Route::view('/rules','rules');

@@ -6,12 +6,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cell extends Model
 {
+    //Position of the cell
     private $position;
+    //Type of the cell
     private $type;
+    //Name of the cell
     private $name;
+    //Color of the cell
     private $color;
+    //List of players on the cell
     private $listPlayer;
+    //Table indicating the owner and number of disks purchased
+    //$disks = ['Player' => 'Number of disks']
     private $disks;
+    //Price of the cell
+    private $price;
 
     public function __construct($name, $position, $type) {
         $this->position = $position;
@@ -36,7 +45,7 @@ class Cell extends Model
 
     public function AddDisk($player, $number) {
         if(is_object($player) and is_a($player, 'Player')) {
-            $name = $player.getName();
+            $name = $player->getName();
             if(isset($disks[$name])){
                 $this->disks[$name] += $number; 
             } else {
@@ -95,5 +104,18 @@ class Cell extends Model
     public function getPosition()
     {
         return $this->position;
+    }
+
+    /**
+     * Get the value of price
+     */ 
+    public function getPrice()
+    {
+        if(isset($this->disks)) {
+            foreach ($variable as $key => $value) {
+                return $this->price * (1.5 * $this->disks[$key]);
+            } 
+        }
+        return $this->price;
     }
 }
