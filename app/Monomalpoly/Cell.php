@@ -16,8 +16,9 @@ class Cell extends Model
     private $color;
     //List of players on the cell
     private $listPlayer;
-    //Table indicating the owner and number of disks purchased
-    //$disks = ['Player' => 'Number of disks']
+    //Owner of the cell
+    private $owner;
+    //Number of disks on the cell
     private $disks;
     //Price of the cell
     private $price;
@@ -28,7 +29,8 @@ class Cell extends Model
         $this->name = $name;
         $this->color = null;
         $this->listPlayer = [];
-        $this->disks = [];
+        $this->owner = new Player(0, 'Personne', '#000000');
+        $this->disks = 0;
     }
 
     public function AddPlayer($player) {
@@ -44,16 +46,9 @@ class Cell extends Model
     }
 
     public function AddDisk($player, $number) {
-        if(is_object($player) and is_a($player, 'Player')) {
-            $name = $player->getName();
-            if(isset($disks[$name])){
-                $this->disks[$name] += $number; 
-            } else {
-                foreach ($this->disks as $key => $value) {
-                    unset($this->disks[$key]);
-                }
-                $this->disks[$name] = $number;
-            }
+        if($this->type == 'purchasable') {
+            $this->onwer = $player;
+            $this->disks = $number;
         }
     }
 
@@ -117,5 +112,13 @@ class Cell extends Model
             } 
         }
         return $this->price;
+    }
+
+    /**
+     * Get the value of owner
+     */ 
+    public function getOwner()
+    {
+        return $this->owner;
     }
 }

@@ -17,7 +17,7 @@ class plateauController extends Controller
         $game->join('1', 'Paul');
         $game->start();
         cache(['game' => $game], 60 * 30);
-        return view('vue2', array('cells' => $befboard));
+        return view('vue2', array('game' => $game, 'cells' => $befboard));
     }
     public function rollDice() {
         $game = cache('game');
@@ -26,6 +26,19 @@ class plateauController extends Controller
         $game->move($game->getTurn());
         var_dump($game->getTurn()->getPosX()); 
         cache(['game' => $game], 60 * 30);
-        return view('vue2', array('cells' => $befboard, 'pos'=> $game->getTurn()->getPosX()+1));
+        return view('vue2', array('game' => $game, 'cells' => $befboard, 'pos'=> $game->getTurn()->getPosX()+1));
+    }
+
+    public function buyCell(Request $request, $x) {
+        $game = cache('game');
+        $befboard = $game->getBoard();
+        if(isset($x)) {
+            var_dump($game->getBoard()[$game->getTurn()->getPosX()]->getDisks());
+            $game->buy($game->getTurn(),$x);
+            var_dump($game->getBoard()[$game->getTurn()->getPosX()]->getDisks());
+        }
+        $game->nextTurn();
+        cache(['game' => $game], 60 * 30);
+        return view('vue2', array('game' => $game, 'cells' => $befboard, 'pos'=> $game->getTurn()->getPosX()+1));
     }
 }

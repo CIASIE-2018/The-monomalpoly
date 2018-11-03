@@ -20,41 +20,41 @@ class Game extends Model
 		//List of the different Cells in the board with their position on x
 		$this->board = [
 			new Cell("Start",0,"start"),
-			new Cell("unknow",1,"purchasable"),
-			new Cell("unknow",2,"bonus"),
-			new Cell("unknow",3,"purchasable"),
+			new Cell("R",1,"purchasable"),
+			new Cell("Luck Card",2,"bonus"),
+			new Cell("Kotlin",3,"purchasable"),
 			new Cell("Kimsufi",4,"host"),
 			new Cell("Hadopi 100",5,"purchasable"),
-			new Cell("unknow",6,"purchasable"),
-			new Cell("unknow",7,"bonus"),
-			new Cell("unknow",8,"purchasable"),
+			new Cell("Swift",6,"purchasable"),
+			new Cell("Luck Card",7,"bonus"),
+			new Cell("Objective-C",8,"purchasable"),
 			new Cell("Network 56K",9,"jail"),
-			new Cell("unknow",10,"purchasable"),
-			new Cell("unknow",11,"bonus"),
-			new Cell("unknow",12,"purchasable"),
+			new Cell("Jupyter Notebook",10,"purchasable"),
+			new Cell("Luck Card",11,"bonus"),
+			new Cell("Ruby",12,"purchasable"),
 			new Cell("1&1",13,"host"),
 			new Cell("Hadopi 200",14,"purchasable"),
-			new Cell("unknow",15,"purchasable"),
-			new Cell("unknow",16,"bonus"),
-			new Cell("unknow",17,"purchasable"),
-			new Cell("E3",18,"boost"),
-			new Cell("unknow",19,"purchasable"),
-			new Cell("unknow",20,"bonus"),
-			new Cell("unknow",21,"purchasable"),
+			new Cell("TypeScript",15,"purchasable"),
+			new Cell("Luck Card",16,"bonus"),
+			new Cell("Go",17,"purchasable"),
+			new Cell("CES",18,"boost"),
+			new Cell("Shell",19,"purchasable"),
+			new Cell("Luck Card",20,"bonus"),
+			new Cell("C#",21,"purchasable"),
 			new Cell("Ikoula",22,"host"),
 			new Cell("Hadopi 300",23,"purchasable"),
-			new Cell("unknow",24,"purchasable"),
-			new Cell("unknow",25,"bonus"),
-			new Cell("unknow",26,"purchasable"),
+			new Cell("PHP",24,"purchasable"),
+			new Cell("Luck Card",25,"bonus"),
+			new Cell("C",26,"purchasable"),
 			new Cell("Internet Shutdown",27,"go to jail"),
-			new Cell("unknow",28,"purchasable"),
-			new Cell("unknow",29,"bonus"),
-			new Cell("unknow",30,"purchasable"),
+			new Cell("C++",28,"purchasable"),
+			new Cell("Luck Card",29,"bonus"),
+			new Cell("Java",30,"purchasable"),
 			new Cell('OVH', 31,"host"),
-			new Cell("unknow",32,"bonus"),
-			new Cell("unknow",33,"purchasable"),
+			new Cell("Luck Card",32,"bonus"),
+			new Cell("Python",33,"purchasable"),
 			new Cell("Hadopi 400",34,"host"),
-			new Cell("unknow",35,"purchasable")
+			new Cell("JavaScript",35,"purchasable")
 		];
 		$this->turn = null;
 	}
@@ -68,8 +68,8 @@ class Game extends Model
 
 	//Allows you to start the game
 	function start() {
-		$numberTurn = random_int(0, sizeof($this->listPlayer)-1);
-		$this->turn = $this->listPlayer[$numberTurn];
+		$this->numberTurn = random_int(0, sizeof($this->listPlayer)-1);
+		$this->turn = $this->listPlayer[$this->numberTurn];
 	}
 
 
@@ -94,14 +94,19 @@ class Game extends Model
 		}
 	}
 
+	function buy($player, $number) {
+		$pos = $player->getPosX();
+		$this->board[$pos]->AddDisk($player, $number);
+	}
+
 	//Allows you to move on to the next round
 	function nextTurn() {
-		if($numberTurn < 6) {
-			$numberTurn++;
-			$this->turn = $this->listPlayer[$numberTurn];
+		if($this->numberTurn + 1 < sizeof($this->listPlayer) - 1) {
+			$this->numberTurn++;
+			$this->turn = $this->listPlayer[$this->numberTurn];
 		} else {
-			$numberTurn = 0;
-			$this->turn = $this->listPlayer[$numberTurn];
+			$this->numberTurn = 0;
+			$this->turn = $this->listPlayer[$this->numberTurn];
 		}
 	}
 
