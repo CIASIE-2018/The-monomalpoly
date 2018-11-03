@@ -11,10 +11,10 @@
 <div class="center">
 Au tour de {{ $game->getTurn()->getName() }} <br>
 <a href="{{ url('test2/roll') }}">Lancer les dés</a><br>
-<a href="{{ url('test2/buy') }}">Ne rien faire</a><br>
-<a href="{{ url('test2/buy/1') }}">Achetez 1 disque</a><br>
-<a href="{{ url('test2/buy/2') }}">Achetez 2 disques</a><br>
-<a href="{{ url('test2/buy/3') }}">Achetez 3 disques</a><br>
+<a href="{{ url('test2/buy/0') }}">Ne rien faire</a><br>
+@for($i = 1; $i < 4 - $game->getBoard()[$game->getTurn()->getPosX()]->getDisks(); $i++)
+<a href="{{ url('test2/buy/'.$i) }}">Achetez {{ $i }} disque(s)</a><br>
+@endfor
 </div>
 
 @for ($i = 0; $i < 36; $i++)

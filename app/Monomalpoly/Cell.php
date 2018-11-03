@@ -48,7 +48,7 @@ class Cell extends Model
     public function AddDisk($player, $number) {
         if($this->type == 'purchasable') {
             $this->onwer = $player;
-            $this->disks = $number;
+            $this->disks += $number;
         }
     }
 
@@ -58,7 +58,7 @@ class Cell extends Model
      */ 
     public function getDisks()
     {
-        return $this->disks;
+        return intval($this->disks);
     }
 
     /**
