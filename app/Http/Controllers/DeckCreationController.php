@@ -24,17 +24,63 @@ class DeckCreationController extends Controller
      * @return \Illuminate\Http\Response
      */
     function getEveryCards(){
+        $everyCards="";
+        $deck_cards = "";
+        $deck_name = "";
+
         //Get every cards
         $result = DB::table('card_types')
         ->select('id','name','description')
         ->get();
-
-        $everyCards='<ul class="type-card-list">';
+        
         foreach($result as $row){
             $everyCards.='<li class='.$row->id.'>'.$row->name.'<button type="button" onclick="addToList()">-></button></li>';
-        }
-        $everyCards.='</ul>';
+        }        
 
-        return view('deck',compact('everyCards'));
+        return view('deck',compact('everyCards','deck_cards','deck_name'));
+    }
+
+    function modifDeck(){
+        $idDeck = $_GET['id_deck'];
+        $deck_cards = "";
+        $everyCards="";
+        $deck_name = "";
+
+        //Get datas from database
+        $deckName = DB::table('deck')
+            ->select('name')
+            ->where('id',$idDeck)
+            ->get();
+
+        $deckCards = DB::table('cards')
+            ->join('card_types','cards.idType','=','card_types.id')
+            ->select('card_types.id','card_types.name')
+            ->where('cards.idDeck',$idDeck)
+            ->orderBy('id','asc')
+            ->get();
+
+        
+        $typeCards = DB::table('card_types')
+            ->select()
+            ->get();
+        
+        //Display types
+        foreach($typeCards as $row){
+            $everyCards.='<li class='.$row->id.'>'.$row->name.'<button type="button" onclick="addToList()">-></button></li>';
+        }
+
+        //Display cards
+        $i=0;
+        foreach($deckCards as $row){
+            $i++;
+            $deck_cards.='<li name="card_'.$i.'" class='.$row->id.'>'.$row->name.'<button type="button" onclick="removeFromList()">X</button></li>';
+        }
+
+        //Set deck name
+        foreach($deckName as $row){
+            $deck_name = $row->name;
+        }
+
+        return view('deck',compact('everyCards','deck_cards','deck_name'));
     }
 }

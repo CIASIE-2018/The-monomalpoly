@@ -34,9 +34,9 @@ class DeckListController extends Controller
         $decklist='<ul class="deck-list">';
         forEach($result as $row){
             if($row->activ==0){
-                $decklist.='<li id='.$row->id.' class="item">'.$row->name.'<div><button onclick="useDeck()">Utiliser</button><button>Modifier</button><button onclick="deleteDeck()">Supprimer</button><div></li>';
+                $decklist.='<li id='.$row->id.' class="item">'.$row->name.'<div><button onclick="useDeck()">Utiliser</button><button onclick="modifDeck()">Modifier</button><button onclick="deleteDeck()">Supprimer</button><div></li>';
             }else{
-                $decklist.='<li id='.$row->id.' class="item">'.$row->name.'<div><button>Modifier</button><button onclick="deleteDeck()">Supprimer</button><div></li>';
+                $decklist.='<li id='.$row->id.' class="item">'.$row->name.'<div><button onclick="modifDeck()">Modifier</button><button onclick="deleteDeck()">Supprimer</button><div></li>';
             }
         }
         $decklist.='</ul>';
@@ -89,5 +89,27 @@ class DeckListController extends Controller
         return redirect('decklist');
     }
 
-    
+    public function updateDeck(Request $request){
+        $idDeck = $_GET['id_deck'];        
+        $deckName = $request->get('deck_name');
+
+        DB::table('deck')
+            ->where('id',$idDeck)
+            ->update(['name'=>$deckName]);
+
+        //Suppression des cartes liées au deck
+        DB::table('cards')
+            ->where('idDeck',$idDeck)
+            ->delete();
+
+        //Recréation des cartes
+        DB::table('cards')
+            ->insert([
+                ['id'=>'0','idType'=>$request->get('type_card_1'),'idDeck'=>$idDeck],
+                ['id'=>'0','idType'=>$request->get('type_card_2'),'idDeck'=>$idDeck],
+                ['id'=>'0','idType'=>$request->get('type_card_3'),'idDeck'=>$idDeck]
+            ]);
+
+        return redirect('decklist');
+    }
 }

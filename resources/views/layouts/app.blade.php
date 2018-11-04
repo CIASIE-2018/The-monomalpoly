@@ -38,7 +38,7 @@
 
             newCard.innerText = card.firstChild.data;
             newCard.className = card.className; //type
-            newCard.name = 'card_'+idCard; //idCard
+            newCard.setAttribute('name','card_'+idCard); //idCard
             newCard.appendChild(suppressButton);
             
             deckList.appendChild(newCard);
@@ -53,7 +53,7 @@
         function removeFromList(){            
             var card = window.event.target.parentNode;
             var cardType = document.getElementsByClassName(card.className)[0];            
-            var inputAssoc = document.getElementsByName("type_"+card.name)[0];
+            var inputAssoc = document.getElementsByName("type_"+card.getAttribute('name'))[0];
 
             cardType.style="display:flex";
             inputAssoc.value="";
@@ -70,13 +70,10 @@
             window.location.href="deleteDeck?id_deck="+id_deck;
         }
 
-        // document.getElementById('deck_form').addEventListener('submit',function(event) {
-        //     var card_list = document.getElementById('deck-card-list');
-        //     if(card_list.childNodes.length<3){
-        //         alert("Il n'y a pas assez de cartes dans le deck");
-        //         event.preventDefault();
-        //     }
-        // });
+        function modifDeck(event){
+            var id_deck = window.event.target.parentNode.parentNode.id;
+            window.location.href="modifDeck?id_deck="+id_deck;        
+        }        
     </script>
 
     <!-- Fonts -->
@@ -146,3 +143,34 @@
     </div>
 </body>
 </html>
+<script type="text/javascript">
+    function setModifState(){
+        if(window.location.href.indexOf('modif')!=-1){
+            var list = document.getElementsByClassName('deck-card-list')[0];            
+            for(i=0;i<list.children.length;i++){
+                card = list.children[i];                
+                var input = document.getElementsByName('type_'+card.getAttribute('name'))[0];                
+                var type = document.getElementsByClassName(card.className)[0];
+                
+                input.value = card.className;
+                type.style = "display:none";
+            }            
+        }
+    }
+
+    if(window.location.href.indexOf('modif')!=-1 || window.location.href.indexOf('creation')!=-1){
+        document.getElementById('deck_form').addEventListener('submit',function(event) {
+            var card_list = document.getElementById('deck-card-list');            
+            console.log(card_list);
+            if(card_list.children.length<3){
+                alert("Il n'y a pas assez de carte dans le deck (3 necessaire)");
+                event.preventDefault();
+            }else if(card_list.children.length>3){
+                alert("Il y a trop de carte dans le deck (3 maximum)");
+                event.preventDefault();
+            }
+        });
+    }
+
+    window.addEventListener('load',setModifState());    
+</script>

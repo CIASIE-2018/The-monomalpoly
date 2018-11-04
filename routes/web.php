@@ -30,3 +30,7 @@ Route::post('/decklist','DeckListController@createDeck');
 Route::get('/setDeckActiv','DeckListController@setActiv');
 
 Route::get('/deleteDeck','DeckListController@deleteDeck');
+
+Route::get('/modifDeck','DeckCreationController@modifDeck');
+
+Route::post('/modifDeck','DeckListController@updateDeck');
