@@ -19,7 +19,6 @@ Route::get('/',function(){
     return redirect('home');
 });
 
-Route::view('/rules','rules');
 
 Route::get('/decklist','DeckListController@getDecklist')->name('decklist');
 
@@ -34,3 +33,11 @@ Route::get('/deleteDeck','DeckListController@deleteDeck');
 Route::get('/modifDeck','DeckCreationController@modifDeck');
 
 Route::post('/modifDeck','DeckListController@updateDeck');
+
+Route::get('/test2/buy/{x}', 'plateauController@buyCell');
+
+Route::get('/test2/roll', 'plateauController@rollDice');
+
+Route::get('/test2', 'plateauController@index');
+
+Route::view('/rules','rules');

@@ -6,12 +6,22 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cell extends Model
 {
+    //Position of the cell
     private $position;
+    //Type of the cell
     private $type;
+    //Name of the cell
     private $name;
+    //Color of the cell
     private $color;
+    //List of players on the cell
     private $listPlayer;
+    //Owner of the cell
+    private $owner;
+    //Number of disks on the cell
     private $disks;
+    //Price of the cell
+    private $price;
 
     public function __construct($name, $position, $type) {
         $this->position = $position;
@@ -19,7 +29,8 @@ class Cell extends Model
         $this->name = $name;
         $this->color = null;
         $this->listPlayer = [];
-        $this->disks = [];
+        $this->owner = new Player(0, 'Personne', '#000000');
+        $this->disks = 0;
     }
 
     public function AddPlayer($player) {
@@ -35,16 +46,9 @@ class Cell extends Model
     }
 
     public function AddDisk($player, $number) {
-        if(is_object($player) and is_a($player, 'Player')) {
-            $name = $player.getName();
-            if(isset($disks[$name])){
-                $this->disks[$name] += $number; 
-            } else {
-                foreach ($this->disks as $key => $value) {
-                    unset($this->disks[$key]);
-                }
-                $this->disks[$name] = $number;
-            }
+        if($this->type == 'purchasable') {
+            $this->onwer = $player;
+            $this->disks += $number;
         }
     }
 
@@ -54,7 +58,7 @@ class Cell extends Model
      */ 
     public function getDisks()
     {
-        return $this->disks;
+        return intval($this->disks);
     }
 
     /**
@@ -95,5 +99,26 @@ class Cell extends Model
     public function getPosition()
     {
         return $this->position;
+    }
+
+    /**
+     * Get the value of price
+     */ 
+    public function getPrice()
+    {
+        if(isset($this->disks)) {
+            foreach ($variable as $key => $value) {
+                return $this->price * (1.5 * $this->disks[$key]);
+            } 
+        }
+        return $this->price;
+    }
+
+    /**
+     * Get the value of owner
+     */ 
+    public function getOwner()
+    {
+        return $this->owner;
     }
 }
