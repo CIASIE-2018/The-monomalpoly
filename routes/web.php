@@ -28,7 +28,8 @@ Route::get('/',function(){
     return redirect('home');
 });
 
-Route::get('/test', 'TestController@index');
+Route::get('/test2/buy/{x}', 'plateauController@buyCell');
+Route::get('/test2/roll', 'plateauController@rollDice');
 
 Route::get('/test2', 'plateauController@index');
 

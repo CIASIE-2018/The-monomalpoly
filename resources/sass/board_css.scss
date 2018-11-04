@@ -4,6 +4,10 @@ body,html{
     box-sizing:border-box;
 }
 
+.ecran {
+    display: flex;
+    align-content: flex-end;
+}
 
 .board {
     display: grid;
@@ -20,8 +24,9 @@ body,html{
 }
 
 .cell {
-    width: 70px;
-    height: 70px;
+    font-size: 12px;
+    width: 85px;
+    height: 100px;
     border: solid black 1px;
 }
 
