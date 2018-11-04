@@ -34,9 +34,9 @@ class DeckListController extends Controller
         $decklist='<ul class="deck-list">';
         forEach($result as $row){
             if($row->activ==0){
-                $decklist.='<li id='.$row->id.' class="item">'.$row->name.'<div><button onclick="window.location.href=\'\'">Utiliser</button><button>Modifier</button><button>Supprimer</button><div></li>';
+                $decklist.='<li id='.$row->id.' class="item">'.$row->name.'<div><button onclick="useDeck()">Utiliser</button><button>Modifier</button><button onclick="deleteDeck()">Supprimer</button><div></li>';
             }else{
-                $decklist.='<li id='.$row->id.' class="item">'.$row->name.'<div><button>Modifier</button><button>Supprimer</button><div></li>';
+                $decklist.='<li id='.$row->id.' class="item">'.$row->name.'<div><button>Modifier</button><button onclick="deleteDeck()">Supprimer</button><div></li>';
             }
         }
         $decklist.='</ul>';
@@ -59,17 +59,35 @@ class DeckListController extends Controller
         return redirect('decklist');
     }
 
-    public function setActiv(Request $request){
+    public function setActiv(){
         //Reset activ
         DB::table('deck')
             ->where('activ',1)
-            ->update(['activ',0]);
+            ->update(['activ'=>0]);
         
-        $idDeck = $request->get("id_deck");
+        $idDeck = $_GET["id_deck"];
 
         //Set activ
         DB::table('deck')
             ->where('id',$idDeck)
             ->update(['activ'=>1]);
+        
+            return redirect('decklist');
     }
+
+    public function deleteDeck(){
+        $idDeck = $_GET["id_deck"];
+        
+        DB::table('deck')
+            ->where('id',$idDeck)
+            ->delete();
+        
+        DB::table('cards')
+            ->where('idDeck',$idDeck)
+            ->delete();
+            
+        return redirect('decklist');
+    }
+
+    
 }

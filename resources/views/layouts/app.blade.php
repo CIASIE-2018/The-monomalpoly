@@ -60,13 +60,23 @@
             card.parentNode.removeChild(card);
         }
 
-        document.getElementById('deck_form').addEventListener('submit',function(event) {
-            var card_list = document.getElementById('deck-card-list');
-            if(card_list.childNodes.length<3){
-                alert("Il n'y a pas assez de cartes dans le deck");
-                event.preventDefault();
-            }
-        });
+        function useDeck(event){
+            var id_deck = window.event.target.parentNode.parentNode.id;
+            window.location.href="setDeckActiv?id_deck="+id_deck;
+        }
+        
+        function deleteDeck(event){
+            var id_deck = window.event.target.parentNode.parentNode.id;
+            window.location.href="deleteDeck?id_deck="+id_deck;
+        }
+
+        // document.getElementById('deck_form').addEventListener('submit',function(event) {
+        //     var card_list = document.getElementById('deck-card-list');
+        //     if(card_list.childNodes.length<3){
+        //         alert("Il n'y a pas assez de cartes dans le deck");
+        //         event.preventDefault();
+        //     }
+        // });
     </script>
 
     <!-- Fonts -->

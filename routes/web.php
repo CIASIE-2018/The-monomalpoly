@@ -27,4 +27,6 @@ Route::get('/deckcreation','DeckCreationController@getEveryCards')->name('deck')
 
 Route::post('/decklist','DeckListController@createDeck');
 
-Route::put('/setDeckActiv','DeckListController@setActiv');
+Route::get('/setDeckActiv','DeckListController@setActiv');
+
+Route::get('/deleteDeck','DeckListController@deleteDeck');
