@@ -19,12 +19,21 @@ Pour finir, afin de pouvoir faire fonctionner l'éditeur de deck, vous devrez re
 
 Et pour finir, afin d'instancier la base de données du jeu, il faudra executer la commande : php artisan migrate
 
+En résumé :
+composer install
+composer update
+configuration du .env
+création de la base de données
+php artisan migrate
+
+
 Vous pouvez alors profiter pleinement du jeu !
 
 
 
 
 Règles de jeu :
+
 De 2 à 6 joueurs
 
 Le déroulement de la partie:
