@@ -69,3 +69,16 @@
     @extend .flex;
     @extend .notInline;
   }
+  .type-card-list,.deck-card-list,.deck-list{
+    @extend .flex;
+    @extend .notInline;
+  }
+
+  .item,.type-card-list li,.deck-card-list li{
+    justify-content: space-between;
+    margin:$smallMarg;
+    div{
+      @extend .flex;
+      @extend .inline;
+    }
+  }

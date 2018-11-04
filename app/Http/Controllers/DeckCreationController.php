@@ -31,7 +31,7 @@ class DeckCreationController extends Controller
 
         $everyCards='<ul class="type-card-list">';
         foreach($result as $row){
-            $everyCards.='<li id='.$row->id.'>'.$row->name.'<button onclick="addToList()">-></button></li>';
+            $everyCards.='<li class='.$row->id.'>'.$row->name.'<button type="button" onclick="addToList()">-></button></li>';
         }
         $everyCards.='</ul>';
 

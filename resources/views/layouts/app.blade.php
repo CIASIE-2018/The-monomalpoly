@@ -7,29 +7,66 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <script type="text/javascript">
+    <script type="text/javascript">   
+        function verifCardId(){
+            for(var i=1;i<4;i++){
+                if(document.getElementsByName('type_card_'+i)[0].value==""){
+                    console.log(i);
+                    return i;
+                }
+            }
+        }
+
         function addToList(event){
+            //Verify wich card it will be
+            var idCard = verifCardId();
+            
+            //Create the new element
             var card = window.event.target.parentNode;
-            var deckList = document.getElementById('deck-card-list');            
+            var deckList = document.getElementsByClassName('deck-card-list')[0];
             var newCard = document.createElement('li');
             var suppressButton = document.createElement('button');
+            
             suppressButton.innerText = 'X';
+            suppressButton.type="button";
+            suppressButton.addEventListener('click',removeFromList);
+
             newCard.innerText = card.firstChild.data;
-            newCard.id = card.id;
-            suppressButton.addEventListener('onclick',removeFromList());
+            newCard.className = card.className; //type
+            newCard.name = 'card_'+idCard; //idCard
             newCard.appendChild(suppressButton);
+            
             deckList.appendChild(newCard);
+
+            //Give value to associated input
+            document.getElementsByName('type_card_'+idCard)[0].value = card.className; //type
+
+            //Hide type from type list
             card.style = "display:none";
         }
 
-        function removeFromList(){
-            //Remove first element that has class "1"
-            //Look for a way that can return the id of the element we just created in database
+        function removeFromList(){            
+            var card = window.event.target.parentNode;
+            var cardType = document.getElementsByClassName(card.className)[0];            
+            var inputAssoc = document.getElementsByName("type_"+card.name)[0];
+
+            cardType.style="display:flex";
+            inputAssoc.value="";
+            card.parentNode.removeChild(card);
         }
+
+        document.getElementById('deck_form').addEventListener('submit',function(event) {
+            var card_list = document.getElementById('deck-card-list');
+            if(card_list.childNodes.length<3){
+                alert("Il n'y a pas assez de cartes dans le deck");
+                event.preventDefault();
+            }
+        });
     </script>
 
     <!-- Fonts -->

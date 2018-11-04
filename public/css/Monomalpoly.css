@@ -9,13 +9,13 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   vertical-align: baseline;
   color: black; }
 
-.flex, .middleFlex, body, a, button, li, ul, nav, main, .grid-row, .grid-col, .grid {
+.flex, .middleFlex, body, a, button, li, ul, nav, main, .grid-row, .grid-col, .grid, .type-card-list, .deck-card-list, .deck-list, .item div, .type-card-list li div, .deck-card-list li div {
   display: flex; }
 
-.notInline, body, header, .grid-col, .grid {
+.notInline, body, header, .grid-col, .grid, .type-card-list, .deck-card-list, .deck-list {
   flex-direction: column; }
 
-.inline, .grid-row {
+.inline, .grid-row, .item div, .type-card-list li div, .deck-card-list li div {
   flex-direction: row; }
 
 .fullWidth, html, body {
@@ -89,5 +89,9 @@ body {
 
 .btn-creation {
   margin: 2% auto; }
+
+.item, .type-card-list li, .deck-card-list li {
+  justify-content: space-between;
+  margin: 2%; }
 
 /*# sourceMappingURL=Monomalpoly.css.map */

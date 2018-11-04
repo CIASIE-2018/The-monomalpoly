@@ -11,15 +11,6 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-// Route::get('test', function () {
-//     event(new App\Events\JoinGame('John'));
-//     return "Event has been sent!";
-// });
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -33,3 +24,7 @@ Route::view('/rules','rules');
 Route::get('/decklist','DeckListController@getDecklist')->name('decklist');
 
 Route::get('/deckcreation','DeckCreationController@getEveryCards')->name('deck');
+
+Route::post('/decklist','DeckListController@createDeck');
+
+Route::put('/setDeckActiv','DeckListController@setActiv');

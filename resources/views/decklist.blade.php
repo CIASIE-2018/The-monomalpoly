@@ -10,6 +10,6 @@
     <?php
         echo $decklist;
     ?>
-    </div>
+    </div>    
     <button class="btn-creation" onclick="window.location.href = 'deckcreation'">[ + ] Créer un deck</button>
 @endsection

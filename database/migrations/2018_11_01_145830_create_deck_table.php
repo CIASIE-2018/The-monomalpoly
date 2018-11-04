@@ -16,7 +16,8 @@ class CreateDeckTable extends Migration
         Schema::create('deck', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->integer('idUser');            
+            $table->integer('idUser');
+            $table->integer('activ');     
             $table->timestamps();
         });
     }
