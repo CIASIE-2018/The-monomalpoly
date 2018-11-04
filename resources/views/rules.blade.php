@@ -1,5 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.navigation')
 
-@section('content')
-    <h1 class="centerText">Règles du jeu</h1>
+@section('card-head')
+    Règles du jeu
+@endsection
+
+@section('card-content')
+    
 @endsection

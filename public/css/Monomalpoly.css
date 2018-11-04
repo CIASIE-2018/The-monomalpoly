@@ -9,13 +9,13 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   vertical-align: baseline;
   color: black; }
 
-.flex, .middleFlex, body, a, button, li, ul, nav, main {
+.flex, .middleFlex, body, a, button, li, ul, nav, main, .grid-row, .grid-col, .grid, .type-card-list, .deck-card-list, .deck-list, .item div, .type-card-list li div, .deck-card-list li div {
   display: flex; }
 
-.notInline, body, header {
+.notInline, body, header, .grid-col, .grid, .type-card-list, .deck-card-list, .deck-list {
   flex-direction: column; }
 
-.inline {
+.inline, .grid-row, .item div, .type-card-list li div, .deck-card-list li div {
   flex-direction: row; }
 
 .fullWidth, html, body {
@@ -33,7 +33,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 .scrollable, main {
   overflow: auto; }
 
-.centerText, .menu .title {
+.centerText, .menu .title, .btn-creation {
   text-align: center; }
 
 .middleFlex {
@@ -80,5 +80,18 @@ body {
 
 .card-header {
   text-align: center; }
+
+.deck-container {
+  overflow: auto;
+  height: 15rem;
+  border: 1px solid black;
+  border-radius: 0.5em; }
+
+.btn-creation {
+  margin: 2% auto; }
+
+.item, .type-card-list li, .deck-card-list li {
+  justify-content: space-between;
+  margin: 2%; }
 
 /*# sourceMappingURL=Monomalpoly.css.map */

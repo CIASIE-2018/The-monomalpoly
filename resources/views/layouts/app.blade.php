@@ -7,10 +7,74 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script type="text/javascript">   
+        function verifCardId(){
+            for(var i=1;i<4;i++){
+                if(document.getElementsByName('type_card_'+i)[0].value==""){
+                    console.log(i);
+                    return i;
+                }
+            }
+        }
+
+        function addToList(event){
+            //Verify wich card it will be
+            var idCard = verifCardId();
+            
+            //Create the new element
+            var card = window.event.target.parentNode;
+            var deckList = document.getElementsByClassName('deck-card-list')[0];
+            var newCard = document.createElement('li');
+            var suppressButton = document.createElement('button');
+            
+            suppressButton.innerText = 'X';
+            suppressButton.type="button";
+            suppressButton.addEventListener('click',removeFromList);
+
+            newCard.innerText = card.firstChild.data;
+            newCard.className = card.className; //type
+            newCard.setAttribute('name','card_'+idCard); //idCard
+            newCard.appendChild(suppressButton);
+            
+            deckList.appendChild(newCard);
+
+            //Give value to associated input
+            document.getElementsByName('type_card_'+idCard)[0].value = card.className; //type
+
+            //Hide type from type list
+            card.style = "display:none";
+        }
+
+        function removeFromList(){            
+            var card = window.event.target.parentNode;
+            var cardType = document.getElementsByClassName(card.className)[0];            
+            var inputAssoc = document.getElementsByName("type_"+card.getAttribute('name'))[0];
+
+            cardType.style="display:flex";
+            inputAssoc.value="";
+            card.parentNode.removeChild(card);
+        }
+
+        function useDeck(event){
+            var id_deck = window.event.target.parentNode.parentNode.id;
+            window.location.href="setDeckActiv?id_deck="+id_deck;
+        }
+        
+        function deleteDeck(event){
+            var id_deck = window.event.target.parentNode.parentNode.id;
+            window.location.href="deleteDeck?id_deck="+id_deck;
+        }
+
+        function modifDeck(event){
+            var id_deck = window.event.target.parentNode.parentNode.id;
+            window.location.href="modifDeck?id_deck="+id_deck;        
+        }        
+    </script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -79,3 +143,34 @@
     </div>
 </body>
 </html>
+<script type="text/javascript">
+    function setModifState(){
+        if(window.location.href.indexOf('modif')!=-1){
+            var list = document.getElementsByClassName('deck-card-list')[0];            
+            for(i=0;i<list.children.length;i++){
+                card = list.children[i];                
+                var input = document.getElementsByName('type_'+card.getAttribute('name'))[0];                
+                var type = document.getElementsByClassName(card.className)[0];
+                
+                input.value = card.className;
+                type.style = "display:none";
+            }            
+        }
+    }
+
+    if(window.location.href.indexOf('modif')!=-1 || window.location.href.indexOf('creation')!=-1){
+        document.getElementById('deck_form').addEventListener('submit',function(event) {
+            var card_list = document.getElementById('deck-card-list');            
+            console.log(card_list);
+            if(card_list.children.length<3){
+                alert("Il n'y a pas assez de carte dans le deck (3 necessaire)");
+                event.preventDefault();
+            }else if(card_list.children.length>3){
+                alert("Il y a trop de carte dans le deck (3 maximum)");
+                event.preventDefault();
+            }
+        });
+    }
+
+    window.addEventListener('load',setModifState());    
+</script>

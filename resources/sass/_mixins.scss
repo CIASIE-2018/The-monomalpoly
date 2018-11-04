@@ -1,5 +1,9 @@
-@mixin bordered($rad:0.5em) {
+@mixin curved($rad:0.5em) {
     border-radius: $rad;
+}
+
+@mixin bordered($size:1px,$form:$solid,$col:$black) {
+    border:$size $form $col;
 }
 
 @mixin alignFlex($align:$centerFlex) {

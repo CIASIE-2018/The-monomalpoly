@@ -33,7 +33,7 @@
     }
 
     a{
-      @include bordered();
+      @include curved();
       @include justifyFlex($centerFlex);
       margin:$smallMarg 0;  
       width:75%;
@@ -47,4 +47,38 @@
 
   .card-header{
     text-align: center;
+  }
+
+  .deck-container{
+    overflow: auto;
+    height: 15rem;
+    @include bordered();
+    @include curved();
+  }
+
+  .btn-creation{    
+    @extend .centerText;
+    margin: $smallMarg auto;
+  }
+
+  .grid-row{
+    @extend .flex;
+    @extend .inline;
+  }
+  .grid-col,.grid{
+    @extend .flex;
+    @extend .notInline;
+  }
+  .type-card-list,.deck-card-list,.deck-list{
+    @extend .flex;
+    @extend .notInline;
+  }
+
+  .item,.type-card-list li,.deck-card-list li{
+    justify-content: space-between;
+    margin:$smallMarg;
+    div{
+      @extend .flex;
+      @extend .inline;
+    }
   }
