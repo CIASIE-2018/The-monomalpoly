@@ -26,7 +26,7 @@ class DeckCreationController extends Controller
     function getEveryCards(){
         $everyCards="";
         $deck_cards = "";
-        $deck_name = "";
+        $deck_name = "";        
 
         //Get every cards
         $result = DB::table('card_types')
@@ -50,7 +50,7 @@ class DeckCreationController extends Controller
         $deckName = DB::table('deck')
             ->select('name')
             ->where('id',$idDeck)
-            ->get();
+            ->first();
 
         $deckCards = DB::table('cards')
             ->join('card_types','cards.idType','=','card_types.id')
@@ -77,9 +77,7 @@ class DeckCreationController extends Controller
         }
 
         //Set deck name
-        foreach($deckName as $row){
-            $deck_name = $row->name;
-        }
+        $deck_name = $deckName->name;        
 
         return view('deck',compact('everyCards','deck_cards','deck_name'));
     }

@@ -34,10 +34,10 @@ Route::get('/modifDeck','DeckCreationController@modifDeck');
 
 Route::post('/modifDeck','DeckListController@updateDeck');
 
-Route::get('/test2/buy/{x}', 'plateauController@buyCell');
+Route::get('/game/buy/{x}', 'plateauController@buyCell');
 
-Route::get('/test2/roll', 'plateauController@rollDice');
+Route::get('/game/roll', 'plateauController@rollDice');
 
-Route::get('/test2', 'plateauController@index');
+Route::get('/game', 'plateauController@index');
 
 Route::view('/rules','rules');

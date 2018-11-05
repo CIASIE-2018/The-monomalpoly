@@ -5,6 +5,35 @@ The Monomalpoly
 
 ![Plateau monomalpoly](https://github.com/CIASIE-2018/The-monomalpoly/blob/master/resources/image/plateau.jpg "Plateau du monomalpoly")
 
+Installation :
+
+Afin de pouvoir utiliser le monomalpoly, il faudra que vous exectuiez un certain nombre de commandes.
+Dans un premier temps, laravel ayant besoin de toutes les librairies associées, il faudra télcharger composer.
+
+Après l'avoir télécharger, vous devrez executer la commande : composer install
+Puis : composer update
+
+Cela nous permettra d'avoir les dernières versions des librairies.
+
+Pour finir, afin de pouvoir faire fonctionner l'éditeur de deck, vous devrez remplir un fichier .env (copie du fichier .env.example) afin de donner au logiciel l'acces à votre base de données.
+
+Et pour finir, afin d'instancier la base de données du jeu, il faudra executer la commande : php artisan migrate
+
+En résumé :
+composer install
+composer update
+configuration du .env
+création de la base de données
+php artisan migrate
+
+
+Vous pouvez alors profiter pleinement du jeu !
+
+
+
+
+Règles de jeu :
+
 De 2 à 6 joueurs
 
 Le déroulement de la partie:

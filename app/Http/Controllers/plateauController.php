@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Monomalpoly\Game;
 use App\Monomalpoly\Cell;
+use Illuminate\Support\Facades\Auth;
 
 class plateauController extends Controller
 {
@@ -14,7 +15,7 @@ class plateauController extends Controller
             $game = new Game();
         }
         $befboard = $game->getBoard();
-        $game->join('1', 'Paul');
+        $game->join('1', Auth::user()->name);
         $game->start();
         cache(['game' => $game], 60 * 30);
         return view('vue2', array('game' => $game, 'cells' => $befboard));

@@ -28,26 +28,31 @@
             
             //Create the new element
             var card = window.event.target.parentNode;
-            var deckList = document.getElementsByClassName('deck-card-list')[0];
-            var newCard = document.createElement('li');
-            var suppressButton = document.createElement('button');
-            
-            suppressButton.innerText = 'X';
-            suppressButton.type="button";
-            suppressButton.addEventListener('click',removeFromList);
+            var deckList = document.getElementsByClassName('deck-card-list')[0];            
+                        
+            if(deckList.children.length<3){
+                var newCard = document.createElement('li');
+                var suppressButton = document.createElement('button');
+                
+                suppressButton.innerText = 'X';
+                suppressButton.type="button";
+                suppressButton.addEventListener('click',removeFromList);
 
-            newCard.innerText = card.firstChild.data;
-            newCard.className = card.className; //type
-            newCard.setAttribute('name','card_'+idCard); //idCard
-            newCard.appendChild(suppressButton);
-            
-            deckList.appendChild(newCard);
+                newCard.innerText = card.firstChild.data;
+                newCard.className = card.className; //type
+                newCard.setAttribute('name','card_'+idCard); //idCard
+                newCard.appendChild(suppressButton);
+                
+                deckList.appendChild(newCard);
 
-            //Give value to associated input
-            document.getElementsByName('type_card_'+idCard)[0].value = card.className; //type
+                //Give value to associated input
+                document.getElementsByName('type_card_'+idCard)[0].value = card.className; //type
 
-            //Hide type from type list
-            card.style = "display:none";
+                //Hide type from type list
+                card.style = "display:none";
+            }else{
+                alert('Le nombre maximal de carte est de 3');
+            }         
         }
 
         function removeFromList(){            
@@ -148,28 +153,35 @@
         if(window.location.href.indexOf('modif')!=-1){
             var list = document.getElementsByClassName('deck-card-list')[0];            
             for(i=0;i<list.children.length;i++){
-                card = list.children[i];                
+                card = list.children[i];
                 var input = document.getElementsByName('type_'+card.getAttribute('name'))[0];                
                 var type = document.getElementsByClassName(card.className)[0];
                 
+                console.log(input);
                 input.value = card.className;
+                console.log(input.value);
                 type.style = "display:none";
             }            
         }
     }
 
     if(window.location.href.indexOf('modif')!=-1 || window.location.href.indexOf('creation')!=-1){
-        document.getElementById('deck_form').addEventListener('submit',function(event) {
-            var card_list = document.getElementById('deck-card-list');            
-            console.log(card_list);
-            if(card_list.children.length<3){
-                alert("Il n'y a pas assez de carte dans le deck (3 necessaire)");
-                event.preventDefault();
+        function verifSubmit(event) {
+            var card_list = document.getElementsByClassName('deck-card-list')[0];            
+            var deck_name = document.getElementsByName('deck_name')[0].value;
+            
+            console.log(deck_name);
+
+            if(deck_name==""){
+                alert("Le deck doit avoir un nom");
+            }else if(card_list.children.length<3){
+                alert("Il n'y a pas assez de carte dans le deck (3 necessaire)");                
             }else if(card_list.children.length>3){
-                alert("Il y a trop de carte dans le deck (3 maximum)");
-                event.preventDefault();
+                alert("Il y a trop de carte dans le deck (3 maximum)");                
+            }else{
+                document.getElementById("deck_form").submit();
             }
-        });
+        }
     }
 
     window.addEventListener('load',setModifState());    
