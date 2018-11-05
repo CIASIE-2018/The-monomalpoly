@@ -153,11 +153,13 @@
         if(window.location.href.indexOf('modif')!=-1){
             var list = document.getElementsByClassName('deck-card-list')[0];            
             for(i=0;i<list.children.length;i++){
-                card = list.children[i];                
+                card = list.children[i];
                 var input = document.getElementsByName('type_'+card.getAttribute('name'))[0];                
                 var type = document.getElementsByClassName(card.className)[0];
                 
+                console.log(input);                
                 input.value = card.className;
+                console.log(input.value);
                 type.style = "display:none";
             }            
         }
