@@ -35,7 +35,7 @@
         </div>
         <div class="grid-row middleFlex">
             <button type="Button"><a  href="{{ url('decklist') }}">Annuler</a></button>
-            <button type="Submit">Valider</button>
+            <button type="Button" onclick="verifSubmit()">Valider</button>
         </div>
     </form>      
 @endsection
