@@ -156,12 +156,10 @@
                 card = list.children[i];
                 var input = document.getElementsByName('type_'+card.getAttribute('name'))[0];                
                 var type = document.getElementsByClassName(card.className)[0];
-                
-                console.log(input);
-                input.value = card.className;
-                console.log(input.value);
-                type.style = "display:none";
-            }            
+                                                
+                input.setAttribute('value', card.className);                
+                type.style = "display:none;";
+            }
         }
     }
 
@@ -169,8 +167,6 @@
         function verifSubmit(event) {
             var card_list = document.getElementsByClassName('deck-card-list')[0];            
             var deck_name = document.getElementsByName('deck_name')[0].value;
-            
-            console.log(deck_name);
 
             if(deck_name==""){
                 alert("Le deck doit avoir un nom");
