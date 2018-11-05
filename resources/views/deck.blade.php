@@ -11,7 +11,7 @@
         @csrf
         <div class="grid-row">
             <div class="card">
-                <input autofocus="on" type="textField" autocomplete="off" name="deck_name" class="card-header" placeholder="Nom du deck" value=<?php echo $deck_name; ?>>                                    
+                <input autofocus="on" type="textField" autocomplete="off" name="deck_name" class="card-header" placeholder="Nom du deck" value="{{ $deck_name }}">                                    
                 <div class="card-body">
                     <ul class="type-card-list">
                         <?php echo $everyCards; ?>

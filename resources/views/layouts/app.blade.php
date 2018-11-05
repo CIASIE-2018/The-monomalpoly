@@ -157,7 +157,7 @@
                 var input = document.getElementsByName('type_'+card.getAttribute('name'))[0];                
                 var type = document.getElementsByClassName(card.className)[0];
                 
-                console.log(input);                
+                console.log(input);
                 input.value = card.className;
                 console.log(input.value);
                 type.style = "display:none";
