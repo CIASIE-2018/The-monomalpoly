@@ -97,6 +97,7 @@ class Game extends Model
 	function buy($player, $number) {
 		$pos = $player->getPosX();
 		$this->board[$pos]->AddDisk($player, $number);
+		$this->board[$pos]->setOwner($player);
 	}
 
 	//Allows you to move on to the next round

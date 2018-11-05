@@ -23,9 +23,9 @@ class plateauController extends Controller
     public function rollDice() {
         $game = cache('game');
         $befboard = $game->getBoard();
-        var_dump($game->getTurn()->getPosX());
+        //var_dump($game->getTurn()->getPosX());
         $game->move($game->getTurn());
-        var_dump($game->getTurn()->getPosX()); 
+        //var_dump($game->getTurn()->getPosX()); 
         cache(['game' => $game], 60 * 30);
         return view('vue2', array('game' => $game, 'cells' => $befboard, 'pos'=> $game->getTurn()->getPosX()+1));
     }
@@ -34,9 +34,9 @@ class plateauController extends Controller
         $game = cache('game');
         $befboard = $game->getBoard();
         if(isset($x)) {
-            var_dump($game->getBoard()[$game->getTurn()->getPosX()]->getDisks());
+            //var_dump($game->getBoard()[$game->getTurn()->getPosX()]->getDisks());
             $game->buy($game->getTurn(),$x);
-            var_dump($game->getBoard()[$game->getTurn()->getPosX()]->getDisks());
+            //var_dump($game->getBoard()[$game->getTurn()->getPosX()]->getDisks());
         }
         $game->nextTurn();
         cache(['game' => $game], 60 * 30);

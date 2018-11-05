@@ -121,4 +121,8 @@ class Cell extends Model
     {
         return $this->owner;
     }
+
+    public function setOwner($owner){
+        $this->owner=$owner;
+    }
 }
